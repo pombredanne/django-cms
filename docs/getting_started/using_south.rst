@@ -1,23 +1,23 @@
 ###########################
-Using South with Django-CMS
+Using South with django CMS
 ###########################
 
 South is an incredible piece of software that lets you handle database
 migrations. This document is by no means meant to replace the 
 excellent `documentation`_ available online, but rather to give a quick primer
-on how and why to get started quickly with South.
+on why you should use South and how to get started quickly.
 
 
 ************
 Installation
 ************
 
-Using Django and Python is, as usual, a joy. Installing South should mostly be
-as easy as typing::
+As always using Django and Python is a joy. Installing South is
+as simple as typing::
 
     pip install South
 
-Then, simply add "South" to the list of ``INSTALLED_APPS`` in your
+Then, simply add ``south`` to the list of :setting:`django:INSTALLED_APPS` in your
 ``settings.py`` file.
 
 
@@ -27,15 +27,15 @@ Basic usage
 
 For a very short crash course:
 
-#. Instead of the initial manage.py syncdb command, simply run
+#. Instead of the initial ``manage.py syncdb`` command, simply run
    ``manage.py schemamigration --initial <app name>``. This will create a new
    migrations package, along with a new migration file (in the form of a python
    script).
-#. Run the migration using manage.py migrate. Your tables have now been created
-   in the database, Django will work as usual
+#. Run the migration using ``manage.py migrate``. Your tables will be created
+   in the database and Django will work as usual.
 #. Whenever you make changes to your models.py file, run
    ``manage.py schemamigration --auto <app name>`` to create a new migration
-   file, then ``manage.py migrate`` to apply the newly created migration!
+   file. Next run ``manage.py migrate`` to apply the newly created migration.
 
 
 ****************************

@@ -1,251 +1,313 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
-"Report-Msgid-Bugs-To: https://github.com/divio/django-cms/issues\n"
-"POT-Creation-Date: 2011-02-07 07:20-0600\n"
-"PO-Revision-Date: 2011-02-16 17:11+0000\n"
-"Last-Translator: ojii <me@ojii.ch>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-21 14:53+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
 "Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Country: SWITZERLAND\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: plugin_base.py:100
+#: cms_toolbar.py:70
+msgid "Edit mode"
+msgstr "編輯模式"
+
+#: cms_toolbar.py:79
+msgid "django CMS"
+msgstr ""
+
+#: cms_toolbar.py:110 templates/admin/cms/page/menu_item.html:69
+msgid "Publish"
+msgstr "發佈"
+
+#: cms_toolbar.py:114
+msgid "Request Approval"
+msgstr ""
+
+#: cms_toolbar.py:135 cms_toolbar.py:144
+msgid "Logout"
+msgstr "登出"
+
+#: cms_toolbar.py:160
+msgid "Template"
+msgstr "模板"
+
+#: cms_toolbar.py:168
+msgid "Move/add Pages"
+msgstr "搬移/添加頁面"
+
+#: cms_toolbar.py:173
+msgid "Add child page"
+msgstr "添加子網頁"
+
+#: cms_toolbar.py:179
+msgid "Add sibling page"
+msgstr "添加同級網頁"
+
+#: cms_toolbar.py:185
+msgid "Delete Page"
+msgstr "刪除網頁"
+
+#: cms_toolbar.py:188 models/moderatormodels.py:45
+#: templates/admin/cms/page/permissions.html:5
+msgid "Page"
+msgstr "網頁"
+
+#: cms_toolbar.py:197
+msgid "Site Administration"
+msgstr "網站管理"
+
+#: cms_toolbar.py:203
+msgid "Page Settings"
+msgstr "網頁設置"
+
+#: cms_toolbar.py:209
+msgid "View History"
+msgstr "查看歷史"
+
+#: cms_toolbar.py:213
+msgid "Admin"
+msgstr ""
+
+#: plugin_base.py:65
 msgid "Advanced options"
 msgstr "進階選項"
 
-#: admin/forms.py:52
+#: admin/forms.py:59
 msgid "Title"
 msgstr "標題"
 
-#: admin/forms.py:53
+#: admin/forms.py:60
 msgid "The default title"
 msgstr "預設標題"
 
-#: admin/forms.py:54
+#: admin/forms.py:61
 msgid "Slug"
 msgstr "簡略標題"
 
-#: admin/forms.py:55
+#: admin/forms.py:62
 msgid "The part of the title that is used in the URL"
 msgstr "在 URL 中使用的部分標題"
 
-#: admin/forms.py:56
+#: admin/forms.py:63
 msgid "Language"
 msgstr "語言"
 
-#: admin/forms.py:57
+#: admin/forms.py:64
 msgid "The current language of the content fields."
 msgstr "內容欄位目前使用的語言。"
 
-#: admin/forms.py:110
+#: admin/forms.py:117
 msgid "Another page with this slug already exists"
 msgstr "已存在有相同簡略標題的另一網頁"
 
-#: admin/forms.py:128
+#: admin/forms.py:151
 msgid "Menu Title"
 msgstr "選單標題"
 
-#: admin/forms.py:129
+#: admin/forms.py:152
 msgid "Overwrite what is displayed in the menu"
 msgstr "取代在選單中的顯示標題"
 
-#: admin/forms.py:130
+#: admin/forms.py:153
 msgid "Page Title"
 msgstr "網頁標題"
 
-#: admin/forms.py:131
+#: admin/forms.py:154
 msgid "Overwrites what is displayed at the top of your browser or in bookmarks"
 msgstr "取代在瀏覽器頂端或書籤內的顯示標題"
 
-#: admin/forms.py:132
+#: admin/forms.py:155
 msgid "Application"
 msgstr "應用套件"
 
-#: admin/forms.py:134
+#: admin/forms.py:157
 msgid "Hook application to this page."
 msgstr "將應用套件掛入此網頁"
 
-#: admin/forms.py:135
+#: admin/forms.py:158
 msgid "Overwrite URL"
 msgstr "取代 URL"
 
-#: admin/forms.py:136
+#: admin/forms.py:159
 msgid "Keep this field empty if standard path should be used."
 msgstr "如果標準路徑應該被使用，請將這一欄位保持空白。"
 
-#: admin/forms.py:142
+#: admin/forms.py:165
 msgid "Redirect"
 msgstr "重新導向"
 
-#: admin/forms.py:143
+#: admin/forms.py:166
 msgid "Redirects to this URL."
 msgstr "重新導向到這個 URL"
 
-#: admin/forms.py:145
+#: admin/forms.py:168
 msgid "A description of the page sometimes used by search engines."
 msgstr "此網頁的說明頁面，有時會被搜索引擎使用。"
 
-#: admin/forms.py:147
+#: admin/forms.py:170
 msgid "A list of comma seperated keywords sometimes used by search engines."
 msgstr "用逗號分隔的關鍵字列表，有時會被搜索引擎使用。"
 
-#: admin/forms.py:163
+#: admin/forms.py:186
 msgid "A page with this reverse URL id exists already."
 msgstr "一個有相同的反向 URL id 的網頁已經存在。"
 
-#: admin/forms.py:171
-msgid "Invalid URL, use /my/url format."
-msgstr "無效的 URL，請使用類似 /my/url 的格式。"
-
-#: admin/forms.py:182 admin/forms.py:183 migrations/0001_initial.py:41
+#: admin/forms.py:203 admin/forms.py:204 migrations/0001_initial.py:41
 #: models/permissionmodels.py:17
 msgid "user"
 msgstr "用戶"
 
-#: admin/forms.py:215
+#: admin/forms.py:228
 msgid ""
 "Add page permission requires also access to children, or descendants, "
 "otherwise added page can't be changed by its creator."
-msgstr "新增網頁的權限也需要能存取子網頁或下層網頁，否則它的建造者將無法對所新增的網頁做更改。"
+msgstr ""
+"新增網頁的權限也需要能存取子網頁或下層網頁，否則它的建造者將無法對所新增的網"
+"頁做更改。"
 
-#: admin/forms.py:218
+#: admin/forms.py:233
 msgid "Add page permission also requires edit page permission."
 msgstr "新增網頁的權限也需要有編輯網頁的權限。"
 
-#: admin/forms.py:245
+#: admin/forms.py:260
+msgid "can_view"
+msgstr ""
+
+#: admin/forms.py:272
 msgid "Please select user or group first."
 msgstr "請先選擇用戶或組群。"
 
-#: admin/forms.py:252 admin/forms.py:259 admin/forms.py:263
-#: templates/admin/cms/page/change_form.html:65
-#: templates/admin/cms/page/plugin_change_form.html:70
+#: admin/forms.py:279 admin/forms.py:286 admin/forms.py:290
+#: templates/admin/cms/page/change_form.html:68
+#: templates/admin/cms/page/plugin_change_form.html:76
+#: templates/cms/toolbar/placeholder.html:26
 msgid "Add"
 msgstr "新增"
 
-#: admin/forms.py:253 admin/forms.py:260 admin/forms.py:264
+#: admin/forms.py:280 admin/forms.py:287 admin/forms.py:291
 msgid "Change"
 msgstr "修改"
 
-#: admin/forms.py:254 admin/forms.py:261 admin/forms.py:265
+#: admin/forms.py:281 admin/forms.py:288 admin/forms.py:292
 #: templates/admin/page_submit_line.html:5
 #: templates/admin/cms/page/menu_item.html:44
 msgid "Delete"
 msgstr "刪除"
 
-#: admin/forms.py:255
+#: admin/forms.py:282
 msgid "Recover (any) pages"
 msgstr "復原(任何)網頁"
 
-#: admin/forms.py:295
+#: admin/forms.py:309
 msgid "Notify user"
 msgstr "通知用戶"
 
-#: admin/forms.py:296
+#: admin/forms.py:310
 msgid ""
-"Send email notification to user about username or password change. "
-"Requires user email."
-msgstr "發送電子郵件通知用戶有關的用戶名稱或密碼的變更。需要用戶的電子郵件地址。"
+"Send email notification to user about username or password change. Requires "
+"user email."
+msgstr ""
+"發送電子郵件通知用戶有關的用戶名稱或密碼的變更。需要用戶的電子郵件地址。"
 
-#: admin/forms.py:316
+#: admin/forms.py:330
 msgid "New password"
 msgstr "新的密碼"
 
-#: admin/forms.py:318
+#: admin/forms.py:332
 msgid "New password confirmation"
 msgstr "新密碼確認"
 
-#: admin/forms.py:337
+#: admin/forms.py:351
 msgid "Email notification requires valid email address."
 msgstr "電子郵件通知需要有效的電子郵件地址。"
 
-#: admin/forms.py:339
+#: admin/forms.py:353
 msgid ""
-"The permission to add new pages requires the permission to change "
-"pages!"
+"The permission to add new pages requires the permission to change pages!"
 msgstr "新增網頁的權限需要有修改網頁的權限！"
 
-#: admin/forms.py:341
+#: admin/forms.py:355
 msgid ""
-"The permission to add new users requires the permission to change "
-"users!"
+"The permission to add new users requires the permission to change users!"
 msgstr "新增用戶的權限需要有修改用戶的權限！"
 
-#: admin/forms.py:343
+#: admin/forms.py:357
 msgid "To add permissions you also need to edit them!"
 msgstr "要增加權限，您還需要有權限編輯它們！"
 
-#: admin/pageadmin.py:123 admin/pageadmin.py:139
-msgid "Hidden"
-msgstr "隱藏"
-
-#: admin/pageadmin.py:134
+#: admin/pageadmin.py:108
 msgid "Basic Settings"
 msgstr "基本設置"
 
-#: admin/pageadmin.py:137
+#: admin/pageadmin.py:111
 msgid "Note: This page reloads if you change the selection. Save it first."
 msgstr "注意：如果你更改選擇，本網頁將重新載入。請先儲存。"
 
-#: admin/pageadmin.py:143
+#: admin/pageadmin.py:113 admin/pageadmin.py:165
+msgid "Hidden"
+msgstr "隱藏"
+
+#: admin/pageadmin.py:117
 msgid "Advanced Settings"
 msgstr "進階設置"
 
-#: admin/pageadmin.py:152
+#: admin/pageadmin.py:124
 msgid "SEO Settings"
 msgstr "搜索引擎優化(SEO)設置"
 
-#: admin/pageadmin.py:504
+#: admin/pageadmin.py:311
+msgid "You have no permission to change the template"
+msgstr ""
+
+#: admin/pageadmin.py:498
 msgid "higher"
 msgstr "更高"
 
-#: admin/pageadmin.py:676
+#: admin/pageadmin.py:668
 msgid "Database error"
 msgstr "資料庫錯誤"
 
-#: admin/pageadmin.py:768 migrations/0001_initial.py:13
-#: migrations/0001_initial.py:26 migrations/0001_initial.py:40
-#: migrations/0001_initial.py:78 migrations/0003_remove_placeholder.py:21
-#: models/pagemodel.py:99 models/permissionmodels.py:69
-#: models/titlemodels.py:21 plugins/inherit/forms.py:9 plugins/link/forms.py:9
-#: plugins/link/models.py:12 plugins/link/migrations/0001_initial.py:19
-#: plugins/picture/models.py:20 plugins/teaser/models.py:13
-msgid "page"
-msgstr "網頁"
+#: admin/pageadmin.py:779
+msgid ""
+"Error! You don't have permissions to move this page. Please reload the page"
+msgstr ""
 
-#: admin/pageadmin.py:896
+#: admin/pageadmin.py:880
 msgid "Page was successfully approved."
 msgstr "網頁被成功地核准。"
 
-#: admin/pageadmin.py:966
+#: admin/pageadmin.py:952
 #, python-format
 msgid "%(name)s object with primary key %(key)r does not exist."
 msgstr "擁有 %(key)r 主索引鍵的 %(name)s 物件不存在。"
 
-#: admin/pageadmin.py:969
+#: admin/pageadmin.py:958
 msgid "There only exists one translation for this page"
 msgstr "此網頁只有一種翻譯"
 
-#: admin/pageadmin.py:991
+#: admin/pageadmin.py:987
 #, python-format
 msgid "Title and plugins with language %(language)s was deleted"
 msgstr "標題和插件的 %(language)s 語言被刪除了"
 
-#: admin/pageadmin.py:1012
+#: admin/pageadmin.py:1009
 msgid "Are you sure?"
 msgstr "您確定嗎？"
 
-#: admin/pageadmin.py:1072
+#: admin/pageadmin.py:1074
 msgid "You do not have permission to publish this page"
 msgstr "你沒有權限發佈此網頁"
 
@@ -253,67 +315,110 @@ msgstr "你沒有權限發佈此網頁"
 msgid "You do not have permission to change this page's in_navigation status"
 msgstr "你沒有權限更改此網頁的 in_navigation 狀態"
 
-#: admin/pageadmin.py:1133 admin/pageadmin.py:1167
-msgid "You do not have permission to change this page"
-msgstr "你沒有權限更改此網頁"
+#: admin/pageadmin.py:1113
+msgid "You have no permission to add a plugin"
+msgstr ""
 
-#: admin/pageadmin.py:1137 admin/pageadmin.py:1169
+#: admin/pageadmin.py:1160 admin/pageadmin.py:1192
 msgid "Language must be set to a supported language!"
 msgstr "語言必須設定為一種被支持的語言！"
 
-#: admin/pageadmin.py:1149
+#: admin/pageadmin.py:1172
 #, python-format
 msgid "%(plugin_name)s plugin added to %(placeholder)s"
 msgstr "%(plugin_name)s 插件被加到 %(placeholder)s"
 
-#: admin/pageadmin.py:1171
+#: admin/pageadmin.py:1190
+msgid "You do not have permission to change this page"
+msgstr "你沒有權限更改此網頁"
+
+#: admin/pageadmin.py:1194
 msgid "Language must be different than the copied language!"
 msgstr "語言必須是不同的於被複製的語言！"
 
-#: admin/pageadmin.py:1179
+#: admin/pageadmin.py:1200
+msgid "You do not have permission to add plugins"
+msgstr ""
+
+#: admin/pageadmin.py:1207
 #, python-format
 msgid "Copied %(language)s plugins to %(placeholder)s"
 msgstr "複製 %(language)s 插件到 %(placeholder)s"
 
-#: admin/pageadmin.py:1260
+#: admin/pageadmin.py:1221 admin/pageadmin.py:1349 admin/pageadmin.py:1375
+msgid "You have no permission to change this page"
+msgstr ""
+
+#: admin/pageadmin.py:1255
+msgid "You have no permission to edit a plugin"
+msgstr ""
+
+#: admin/pageadmin.py:1311
 #, python-format
 msgid ""
-"%(plugin_name)s plugin edited at position %(position)s in "
-"%(placeholder)s"
+"%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
 msgstr "%(plugin_name)s 插件於 %(position)s 位置的 %(placeholder)s 內被編輯"
 
-#: admin/pageadmin.py:1318
+#: admin/pageadmin.py:1370
+msgid "You have no permission to move a plugin"
+msgstr ""
+
+#: admin/pageadmin.py:1388
 msgid "Plugins where moved"
 msgstr "插件被移動"
 
-#: admin/pageadmin.py:1345 admin/placeholderadmin.py:216
+#: admin/pageadmin.py:1402
+msgid "You have no permission to remove a plugin"
+msgstr ""
+
+#: admin/pageadmin.py:1420 admin/placeholderadmin.py:293
 #, python-format
 msgid ""
 "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
 "deleted."
 msgstr "%(plugin_name)s 插件於 %(position)s 位置的 %(placeholder)s 內被刪除。"
 
-#: admin/permissionadmin.py:114 models/permissionmodels.py:75
+#: admin/permissionadmin.py:94
+msgid "View restriction"
+msgstr ""
+
+#: admin/permissionadmin.py:95
+msgid "View restrictions"
+msgstr ""
+
+#: admin/permissionadmin.py:155 models/permissionmodels.py:76
 msgid "Page permissions"
 msgstr "網頁的權限"
 
-#: admin/permissionadmin.py:115
+#: admin/permissionadmin.py:156
 msgid "User & Group permissions"
 msgstr "用戶和組群的權限"
 
-#: admin/permissionadmin.py:116
+#: admin/permissionadmin.py:157
 msgid "Page permissions management"
 msgstr "網頁權限管理"
 
-#: admin/useradmin.py:23
+#: admin/placeholderadmin.py:151 admin/placeholderadmin.py:192
+msgid "You don't have permission to add content here."
+msgstr ""
+
+#: admin/placeholderadmin.py:188
+msgid "You don't have permission to add plugins"
+msgstr ""
+
+#: admin/placeholderadmin.py:289
+msgid "You don't have permission to delete a plugin"
+msgstr ""
+
+#: admin/useradmin.py:25
 msgid "User details"
 msgstr "用戶詳細資料"
 
-#: admin/useradmin.py:24
+#: admin/useradmin.py:26
 msgid "Groups"
 msgstr "組群"
 
-#: admin/useradmin.py:34 templates/cms/toolbar/toolbar.html:155
+#: admin/useradmin.py:36 templates/cms/toolbar/items/login.html:7
 msgid "Password"
 msgstr "密碼"
 
@@ -325,7 +430,7 @@ msgstr "複製權限"
 msgid "Copy moderation"
 msgstr "複製管制權限"
 
-#: conf/patch.py:27
+#: conf/patch.py:28
 msgid "Inherit the template of the nearest ancestor"
 msgstr "繼承最近的上層網頁模板"
 
@@ -337,7 +442,7 @@ msgstr ""
 msgid "Select a valid page"
 msgstr ""
 
-#: forms/widgets.py:173
+#: forms/widgets.py:174
 msgid "Add Another"
 msgstr "添加另一件"
 
@@ -345,33 +450,43 @@ msgstr "添加另一件"
 #: migrations/0001_initial.py:75 migrations/0003_remove_placeholder.py:18
 #: migrations/0010_5char_language.py:12 migrations/0010_5char_language.py:15
 #: migrations/0010_5char_language.py:22 migrations/0010_5char_language.py:25
-#: models/pluginmodel.py:61 models/titlemodels.py:10
+#: models/pluginmodel.py:82 models/titlemodels.py:11
 #: plugins/inherit/models.py:11
 msgid "language"
 msgstr "語言"
 
+#: migrations/0001_initial.py:13 migrations/0001_initial.py:26
+#: migrations/0001_initial.py:40 migrations/0001_initial.py:78
+#: migrations/0003_remove_placeholder.py:21 models/pagemodel.py:99
+#: models/permissionmodels.py:70 models/titlemodels.py:22
+#: plugins/inherit/forms.py:9 plugins/link/forms.py:9
+#: plugins/link/models.py:12 plugins/link/migrations/0001_initial.py:19
+#: plugins/picture/models.py:22 plugins/teaser/models.py:13
+msgid "page"
+msgstr "網頁"
+
 #: migrations/0001_initial.py:14 migrations/0004_textobjects.py:12
-#: migrations/0004_textobjects.py:22 models/pluginmodel.py:60
+#: migrations/0004_textobjects.py:22 models/pluginmodel.py:81
 msgid "position"
 msgstr "位置"
 
 #: migrations/0001_initial.py:15 migrations/0001_initial.py:29
-#: models/pluginmodel.py:63 models/titlemodels.py:22
+#: models/pluginmodel.py:84 models/titlemodels.py:23
 msgid "creation date"
 msgstr "創建日期"
 
 #: migrations/0001_initial.py:16 migrations/0001_initial.py:77
-#: migrations/0003_remove_placeholder.py:20 models/placeholdermodel.py:11
+#: migrations/0003_remove_placeholder.py:20 models/placeholdermodel.py:12
 msgid "slot"
 msgstr "插槽"
 
-#: migrations/0001_initial.py:18 models/pluginmodel.py:62
+#: migrations/0001_initial.py:18 models/pluginmodel.py:83
 msgid "plugin_name"
 msgstr "插件名稱"
 
 #: migrations/0001_initial.py:25 migrations/0011_title_overwrites.py:12
-#: migrations/0011_title_overwrites.py:15 models/titlemodels.py:11
-#: models/titlemodels.py:12 models/titlemodels.py:20 plugins/file/models.py:25
+#: migrations/0011_title_overwrites.py:15 models/titlemodels.py:12
+#: models/titlemodels.py:13 models/titlemodels.py:21 plugins/file/models.py:25
 #: plugins/file/migrations/0001_initial.py:18 plugins/teaser/models.py:9
 #: plugins/twitter/models.py:6 plugins/twitter/models.py:15
 #: templates/admin/cms/page/change_list_tree.html:6
@@ -382,7 +497,7 @@ msgstr "標題"
 msgid "path"
 msgstr "路徑"
 
-#: migrations/0001_initial.py:30 models/titlemodels.py:13
+#: migrations/0001_initial.py:30 models/titlemodels.py:14
 msgid "slug"
 msgstr "簡略標題"
 
@@ -420,7 +535,7 @@ msgid "navigation extenders"
 msgstr "導航擴展"
 
 #: migrations/0001_initial.py:54 migrations/0006_apphook.py:12
-#: migrations/0006_apphook.py:46 models/titlemodels.py:15
+#: migrations/0006_apphook.py:46 models/titlemodels.py:16
 msgid "has url overwrite"
 msgstr "有 url 取代"
 
@@ -436,50 +551,50 @@ msgstr "作者"
 msgid "reverse url id"
 msgstr "反向 url id"
 
-#: migrations/0001_initial.py:59 models/pagemodel.py:82
+#: migrations/0001_initial.py:59 models/pagemodel.py:79
 msgid "login required"
 msgstr "需要登入"
 
-#: migrations/0001_initial.py:60 models/pagemodel.py:67
+#: migrations/0001_initial.py:60 models/pagemodel.py:64
 msgid "soft root"
 msgstr "軟性根目錄"
 
-#: migrations/0001_initial.py:63 models/pagemodel.py:65
+#: migrations/0001_initial.py:63 models/pagemodel.py:62
 msgid "publication end date"
 msgstr "發佈結束日期"
 
-#: migrations/0001_initial.py:64 models/pagemodel.py:72
+#: migrations/0001_initial.py:64 models/pagemodel.py:69
 #: plugins/snippet/models.py:14
 msgid "template"
 msgstr "模板"
 
-#: migrations/0001_initial.py:66 models/pagemodel.py:64
+#: migrations/0001_initial.py:66 models/pagemodel.py:61
 msgid "publication date"
 msgstr "發佈日期"
 
-#: migrations/0001_initial.py:67 models/pagemodel.py:66
+#: migrations/0001_initial.py:67 models/pagemodel.py:63
 #: templates/admin/cms/page/change_list_tree.html:9
 msgid "in navigation"
 msgstr "出現在導航中"
 
 #: migrations/0006_apphook.py:15 migrations/0007_apphook_longer.py:11
-#: migrations/0007_apphook_longer.py:17 models/titlemodels.py:16
+#: migrations/0007_apphook_longer.py:17 models/titlemodels.py:17
 msgid "application"
 msgstr "應用套件"
 
-#: migrations/0006_apphook.py:65 models/pagemodel.py:68
+#: migrations/0006_apphook.py:65 models/pagemodel.py:65
 msgid "id"
 msgstr "id"
 
-#: migrations/0008_redirects.py:11 models/titlemodels.py:17
+#: migrations/0008_redirects.py:11 models/titlemodels.py:18
 msgid "redirect"
 msgstr "重新導向"
 
-#: migrations/0009_added_meta_fields.py:12 models/titlemodels.py:19
+#: migrations/0009_added_meta_fields.py:12 models/titlemodels.py:20
 msgid "keywords"
 msgstr "關鍵字"
 
-#: migrations/0009_added_meta_fields.py:15 models/titlemodels.py:18
+#: migrations/0009_added_meta_fields.py:15 models/titlemodels.py:19
 #: plugins/teaser/models.py:20
 msgid "description"
 msgstr "說明"
@@ -504,26 +619,21 @@ msgstr "下層網頁"
 msgid "Page and descendants"
 msgstr "網頁與下層網頁"
 
-#: models/moderatormodels.py:45 templates/admin/cms/page/permissions.html:5
-#: templates/cms/toolbar/toolbar.html:193
-msgid "Page"
-msgstr "網頁"
-
 #: models/moderatormodels.py:46
 #: templates/admin/cms/page/moderation_messages.html:6
 #: templates/admin/cms/page/permissions.html:6
 msgid "User"
 msgstr "用戶"
 
-#: models/moderatormodels.py:50 templatetags/cms_admin.py:85
+#: models/moderatormodels.py:50 templatetags/cms_admin.py:147
 msgid "Moderate page"
 msgstr "管制網頁"
 
-#: models/moderatormodels.py:51 templatetags/cms_admin.py:86
+#: models/moderatormodels.py:51 templatetags/cms_admin.py:148
 msgid "Moderate children"
 msgstr "管制子網頁"
 
-#: models/moderatormodels.py:52 templatetags/cms_admin.py:87
+#: models/moderatormodels.py:52 templatetags/cms_admin.py:149
 msgid "Moderate descendants"
 msgstr "管制下層網頁"
 
@@ -531,121 +641,120 @@ msgstr "管制下層網頁"
 msgid "PageModerator"
 msgstr "網頁管制者"
 
-#: models/moderatormodels.py:98
+#: models/moderatormodels.py:99
 msgid "created"
 msgstr "創建"
 
-#: models/moderatormodels.py:99 models/pagemodel.py:42
+#: models/moderatormodels.py:100 models/pagemodel.py:39
 msgid "changed"
 msgstr "已變更"
 
-#: models/moderatormodels.py:100
+#: models/moderatormodels.py:101
 msgid "delete req."
 msgstr "刪除請求"
 
-#: models/moderatormodels.py:101
+#: models/moderatormodels.py:102
 msgid "move req."
 msgstr "搬移請求"
 
-#: models/moderatormodels.py:102
+#: models/moderatormodels.py:103
 msgid "publish req."
 msgstr "發佈請求"
 
-#: models/moderatormodels.py:103
+#: models/moderatormodels.py:104
 msgid "unpublish req."
 msgstr "取消發佈請求"
 
-#: models/moderatormodels.py:104 models/pagemodel.py:45
+#: models/moderatormodels.py:105 models/pagemodel.py:42
 msgid "approved"
 msgstr "已核准"
 
-#: models/moderatormodels.py:116
+#: models/moderatormodels.py:117
 msgid "Page moderator state"
 msgstr "網頁管制狀態"
 
-#: models/moderatormodels.py:117
+#: models/moderatormodels.py:118
 msgid "Page moderator states"
 msgstr "網頁管制狀態"
 
-#: models/pagemodel.py:43
+#: models/pagemodel.py:40
 msgid "req. app."
 msgstr "需要認可"
 
-#: models/pagemodel.py:44 templates/admin/cms/page/menu_item.html:44
-#: templates/cms/toolbar/toolbar.html:200
-#: templates/cms/toolbar/toolbar.html:239 utils/moderator.py:90
+#: models/pagemodel.py:41 templates/admin/cms/page/menu_item.html:44
+#: templates/cms/toolbar/toolbar.html:66 utils/moderator.py:90
 msgid "delete"
 msgstr "刪除"
 
-#: models/pagemodel.py:46
+#: models/pagemodel.py:43
 msgid "app. par."
 msgstr "已認可，等待上層被認可"
 
-#: models/pagemodel.py:50
+#: models/pagemodel.py:47
 msgid "for logged in users only"
 msgstr ""
 
-#: models/pagemodel.py:51
+#: models/pagemodel.py:48
 msgid "for anonymous users only"
 msgstr ""
 
-#: models/pagemodel.py:59
+#: models/pagemodel.py:56
 msgid "created by"
 msgstr "創建者"
 
-#: models/pagemodel.py:60 templates/admin/cms/page/change_list_tree.html:19
+#: models/pagemodel.py:57 templates/admin/cms/page/change_list_tree.html:20
 msgid "changed by"
 msgstr "修改者"
 
-#: models/pagemodel.py:64
+#: models/pagemodel.py:61
 msgid ""
-"When the page should go live. Status must be \"Published\" for page to go"
-" live."
+"When the page should go live. Status must be \"Published\" for page to go "
+"live."
 msgstr "何時此網頁要正式發表。狀態必須是\"發佈\"才會使網頁發表出去。"
 
-#: models/pagemodel.py:65
+#: models/pagemodel.py:62
 msgid "When to expire the page. Leave empty to never expire."
 msgstr "何時讓此網頁過期。若留空白則永不過期。"
 
-#: models/pagemodel.py:67
+#: models/pagemodel.py:64
 msgid "All ancestors will not be displayed in the navigation"
 msgstr "所有的上層網頁將不會顯示在導航中"
 
-#: models/pagemodel.py:68
+#: models/pagemodel.py:65
 msgid ""
-"An unique identifier that is used with the page_url templatetag for "
-"linking to this page"
+"An unique identifier that is used with the page_url templatetag for linking "
+"to this page"
 msgstr "一個唯一的識別碼，與 page_url 模板標籤一起用於做連結到此網頁"
 
-#: models/pagemodel.py:69
+#: models/pagemodel.py:66
 msgid "attached menu"
 msgstr ""
 
-#: models/pagemodel.py:70
+#: models/pagemodel.py:67
 msgid "is published"
 msgstr "已被發佈"
 
-#: models/pagemodel.py:72
+#: models/pagemodel.py:69
 msgid "The template used to render the content."
 msgstr "用於呈現內容的模板。"
 
-#: models/pagemodel.py:73
+#: models/pagemodel.py:70
 msgid "The site the page is accessible at."
 msgstr "可在這個網站取用此網頁。"
 
-#: models/pagemodel.py:73
+#: models/pagemodel.py:70
 msgid "site"
 msgstr "網站"
 
-#: models/pagemodel.py:75
+#: models/pagemodel.py:72
 msgid "moderator state"
 msgstr "管制員狀態"
 
-#: models/pagemodel.py:83
+#: models/pagemodel.py:80
 msgid "menu visibility"
 msgstr ""
 
-#: models/pagemodel.py:83
+#: models/pagemodel.py:80
 msgid "limit when this page is visible in the menu"
 msgstr ""
 
@@ -653,11 +762,11 @@ msgstr ""
 msgid "pages"
 msgstr "網頁"
 
-#: models/pagemodel.py:243
+#: models/pagemodel.py:268
 msgid "Page was copied."
 msgstr "網頁已被複製。"
 
-#: models/pagemodel.py:712
+#: models/pagemodel.py:690
 msgid "default"
 msgstr "預設"
 
@@ -689,6 +798,14 @@ msgstr "可搬移"
 msgid "can moderate"
 msgstr "可管制"
 
+#: models/permissionmodels.py:29
+msgid "view restricted"
+msgstr ""
+
+#: models/permissionmodels.py:29
+msgid "frontend view restriction"
+msgstr ""
+
 #: models/permissionmodels.py:52
 msgid "can recover pages"
 msgstr "可以復原網頁"
@@ -713,19 +830,19 @@ msgstr "網頁全站權限"
 msgid "Pages global permissions"
 msgstr "網頁全站權限"
 
-#: models/permissionmodels.py:68 templates/admin/cms/page/permissions.html:14
+#: models/permissionmodels.py:69 templates/admin/cms/page/permissions.html:15
 msgid "Grant on"
 msgstr "授權於"
 
-#: models/permissionmodels.py:74
+#: models/permissionmodels.py:75
 msgid "Page permission"
 msgstr "網頁權限"
 
-#: models/permissionmodels.py:88
+#: models/permissionmodels.py:90
 msgid "User (page)"
 msgstr "用戶(網頁)"
 
-#: models/permissionmodels.py:89
+#: models/permissionmodels.py:91
 msgid "Users (page)"
 msgstr "用戶(網頁)"
 
@@ -737,24 +854,25 @@ msgstr "用戶組群(網頁)"
 msgid "User groups (page)"
 msgstr "用戶組群(網頁)"
 
-#: models/placeholdermodel.py:12 plugins/flash/models.py:9
-#: plugins/flash/migrations/0001_initial.py:16 plugins/video/models.py:13
+#: models/placeholdermodel.py:13 plugins/flash/models.py:9
+#: plugins/flash/migrations/0001_initial.py:16 plugins/googlemap/models.py:36
+#: plugins/video/models.py:13
 msgid "width"
 msgstr "寬度"
 
-#: models/pluginmodel.py:122
+#: models/pluginmodel.py:142
 msgid "<Empty>"
 msgstr ""
 
-#: models/titlemodels.py:12
+#: models/titlemodels.py:13
 msgid "overwrite the title in the menu"
 msgstr "取代在選單上的標題"
 
-#: models/titlemodels.py:14
+#: models/titlemodels.py:15
 msgid "Path"
 msgstr "路徑"
 
-#: models/titlemodels.py:20
+#: models/titlemodels.py:21
 msgid "overwrite the title (html title tag)"
 msgstr "取代標題(html title 標籤)"
 
@@ -767,6 +885,10 @@ msgstr "檔案"
 msgid "file"
 msgstr "檔案"
 
+#: plugins/file/templates/cms/plugins/file.html:6
+msgid "file missing!"
+msgstr ""
+
 #: plugins/flash/cms_plugins.py:9
 msgid "Flash"
 msgstr "Flash"
@@ -776,83 +898,113 @@ msgid "use swf file"
 msgstr "使用 swf 檔案"
 
 #: plugins/flash/models.py:10 plugins/flash/migrations/0001_initial.py:19
-#: plugins/video/models.py:14
+#: plugins/googlemap/models.py:38 plugins/video/models.py:14
 msgid "height"
 msgstr "高度"
 
-#: plugins/flash/templates/cms/plugins/flash.html:2
-msgid "Missing flash plugin."
-msgstr "欠缺 flash 插件。"
+#: plugins/flash/templates/cms/plugins/flash.html:40
+#: plugins/video/templates/cms/plugins/video.html:60
+msgid "Missing flash plugin. Please download the latest Adobe Flash Player: "
+msgstr ""
+
+#: plugins/flash/templates/cms/plugins/flash.html:42
+#: plugins/video/templates/cms/plugins/video.html:62
+msgid "Get Adobe Flash Player"
+msgstr ""
 
 #: plugins/googlemap/cms_plugins.py:10
 msgid "Google Map"
 msgstr "谷歌地圖"
 
-#: plugins/googlemap/models.py:9
+#: plugins/googlemap/cms_plugins.py:19
+msgid "Advanced"
+msgstr ""
+
+#: plugins/googlemap/forms.py:23
+msgid "Must be a positive integer followed by “px” or “%”."
+msgstr ""
+
+#: plugins/googlemap/forms.py:26
+msgid "Must be a positive integer followed by “px”."
+msgstr ""
+
+#: plugins/googlemap/models.py:10
 msgid "map title"
 msgstr "地圖標題"
 
-#: plugins/googlemap/models.py:11
+#: plugins/googlemap/models.py:13
 msgid "address"
 msgstr "地址"
 
-#: plugins/googlemap/models.py:12
+#: plugins/googlemap/models.py:14
 msgid "zip code"
 msgstr "郵遞區號"
 
-#: plugins/googlemap/models.py:13
+#: plugins/googlemap/models.py:15
 msgid "city"
 msgstr "城市"
 
-#: plugins/googlemap/models.py:15
+#: plugins/googlemap/models.py:17
 msgid "additional content"
 msgstr "額外內容"
 
-#: plugins/googlemap/models.py:16
+#: plugins/googlemap/models.py:19
+msgid "Displayed under address in the bubble."
+msgstr ""
+
+#: plugins/googlemap/models.py:21
 msgid "zoom level"
 msgstr "縮放層級"
 
-#: plugins/googlemap/models.py:18
+#: plugins/googlemap/models.py:24
 msgid "latitude"
 msgstr "緯度"
 
-#: plugins/googlemap/models.py:19
-msgid "Use latitude & longitude to fine tune the map possiton."
+#: plugins/googlemap/models.py:26
+msgid "Use latitude & longitude to fine tune the map position."
 msgstr "使用緯度和經度微調地圖位置。"
 
-#: plugins/googlemap/models.py:20
+#: plugins/googlemap/models.py:28
 msgid "longitude"
 msgstr "經度"
 
-#: plugins/googlemap/models.py:22
+#: plugins/googlemap/models.py:31
 msgid "route planer title"
 msgstr "路線計畫標題"
 
-#: plugins/googlemap/models.py:22
+#: plugins/googlemap/models.py:33
 msgid "Calculate your fastest way to here"
 msgstr "計算你最快到這裡的路線"
 
-#: plugins/googlemap/models.py:23
+#: plugins/googlemap/models.py:34
 msgid "route planer"
 msgstr "路線計畫"
 
-#: plugins/googlemap/models.py:30
+#: plugins/googlemap/models.py:37
+msgid "Plugin width (in pixels or percent)."
+msgstr ""
+
+#: plugins/googlemap/models.py:39
+msgid "Plugin height (in pixels)."
+msgstr ""
+
+#: plugins/googlemap/models.py:47
 msgid "Map"
 msgstr "地圖"
 
-#: plugins/googlemap/templates/cms/plugins/googlemap.html:11
+#: plugins/googlemap/templates/cms/plugins/googlemap.html:72
 msgid "Your address: "
 msgstr ""
 
-#: plugins/googlemap/templates/cms/plugins/googlemap.html:13
+#: plugins/googlemap/templates/cms/plugins/googlemap.html:74
 msgid "Calculate route"
 msgstr "計算路線"
 
-#: plugins/inherit/cms_plugins.py:18
+#: plugins/inherit/cms_plugins.py:17
 msgid "Inherit Plugins from Page"
 msgstr "從網頁繼承插件"
 
-#: plugins/inherit/forms.py:19
+#: plugins/inherit/forms.py:23
 msgid "Language or Page must be filled out"
 msgstr "語言或網頁必須被填寫"
 
@@ -878,7 +1030,7 @@ msgid "name"
 msgstr "名稱"
 
 #: plugins/link/models.py:11 plugins/link/migrations/0001_initial.py:16
-#: plugins/picture/models.py:19 plugins/picture/migrations/0001_initial.py:16
+#: plugins/picture/models.py:21 plugins/picture/migrations/0001_initial.py:16
 #: plugins/teaser/models.py:19
 msgid "link"
 msgstr "連結"
@@ -895,44 +1047,68 @@ msgstr "寄郵件到"
 msgid "An email adress has priority over a text link."
 msgstr "電子郵件地址優先於文字連結。"
 
+#: plugins/link/models.py:14
+msgid "target"
+msgstr ""
+
+#: plugins/link/models.py:15
+msgid "same window"
+msgstr ""
+
+#: plugins/link/models.py:16
+msgid "new window"
+msgstr ""
+
+#: plugins/link/models.py:17
+msgid "parent window"
+msgstr ""
+
+#: plugins/link/models.py:18
+msgid "topmost frame"
+msgstr ""
+
 #: plugins/picture/cms_plugins.py:9
 msgid "Picture"
 msgstr "圖片"
 
-#: plugins/picture/models.py:13
+#: plugins/picture/models.py:14
+msgid "center"
+msgstr ""
+
+#: plugins/picture/models.py:15
 msgid "left"
 msgstr "左"
 
-#: plugins/picture/models.py:14
+#: plugins/picture/models.py:16
 msgid "right"
 msgstr "右"
 
-#: plugins/picture/models.py:18 plugins/picture/migrations/0001_initial.py:17
+#: plugins/picture/models.py:20 plugins/picture/migrations/0001_initial.py:17
 #: plugins/teaser/models.py:10 plugins/video/models.py:11
 msgid "image"
 msgstr "圖片"
 
-#: plugins/picture/models.py:19 plugins/picture/models.py:20
+#: plugins/picture/models.py:21 plugins/picture/models.py:22
 msgid "if present image will be clickable"
 msgstr "如果存在，則圖片將可點擊"
 
-#: plugins/picture/models.py:21 plugins/picture/migrations/0001_initial.py:19
+#: plugins/picture/models.py:23 plugins/picture/migrations/0001_initial.py:19
 msgid "alternate text"
 msgstr "替換文字"
 
-#: plugins/picture/models.py:21
+#: plugins/picture/models.py:23
 msgid "textual description of the image"
 msgstr "圖片的文字描述"
 
-#: plugins/picture/models.py:22
+#: plugins/picture/models.py:24
 msgid "long description"
 msgstr "詳細敘述"
 
-#: plugins/picture/models.py:22
+#: plugins/picture/models.py:24
 msgid "additional description of the image"
 msgstr "圖片的額外說明"
 
-#: plugins/picture/models.py:23
+#: plugins/picture/models.py:25
 msgid "side"
 msgstr "位置"
 
@@ -952,8 +1128,7 @@ msgstr "HEML"
 
 #: plugins/snippet/models.py:15
 msgid ""
-"Enter a template (i.e. \"snippets/plugin_xy.html\") which will be "
-"rendered. "
+"Enter a template (i.e. \"snippets/plugin_xy.html\") which will be rendered. "
 msgstr "輸入一個模板（即 \"snippets/plugin_xy.html\"）用來呈現頁面。"
 
 #: plugins/snippet/models.py:25
@@ -973,6 +1148,7 @@ msgid "If present image will be clickable."
 msgstr "如果存在，則圖片將可點擊"
 
 #: plugins/teaser/templates/cms/plugins/teaser.html:11
+#: templates/cms/toolbar/toolbar.html:68
 msgid "more"
 msgstr "閱讀文章"
 
@@ -995,7 +1171,7 @@ msgid "Please select a plugin type."
 msgstr "請選擇一個插件類型。"
 
 #: plugins/text/templates/cms/plugins/widgets/tinymce.html:54
-#: plugins/text/templates/cms/plugins/widgets/wymeditor.html:114
+#: plugins/text/templates/cms/plugins/widgets/wymeditor.html:112
 msgid "Edit selected plugin"
 msgstr "編輯所選擇的插件"
 
@@ -1021,20 +1197,21 @@ msgstr "文字編輯器不支持插入物件。"
 msgid "Not a plugin object"
 msgstr "不是一個插件物件"
 
-#: plugins/text/templates/cms/plugins/widgets/wymeditor.html:110
+#: plugins/text/templates/cms/plugins/widgets/wymeditor.html:108
 #: templates/admin/cms/page/widgets/installed_plugins_inc.html:4
 msgid "Available Plugins"
 msgstr "可用插件"
 
-#: plugins/text/templates/cms/plugins/widgets/wymeditor.html:113
+#: plugins/text/templates/cms/plugins/widgets/wymeditor.html:111
 msgid "Insert plugin"
 msgstr "插入插件"
 
 #: plugins/twitter/cms_plugins.py:10
+#: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:30
 msgid "Twitter"
 msgstr "推特(Twitter)"
 
-#: plugins/twitter/cms_plugins.py:31
+#: plugins/twitter/cms_plugins.py:23
 msgid "Twitter Search"
 msgstr ""
 
@@ -1069,6 +1246,30 @@ msgid ""
 "\"brains\" and \"zombies\""
 msgstr ""
 
+#: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:14
+msgid "we said,"
+msgstr ""
+
+#: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:15
+msgid "we"
+msgstr ""
+
+#: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:16
+msgid "we were"
+msgstr ""
+
+#: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:17
+msgid "we replied to"
+msgstr ""
+
+#: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:18
+msgid "we were checking out"
+msgstr ""
+
+#: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:19
+msgid "loading tweets..."
+msgstr ""
+
 #: plugins/video/cms_plugins.py:10
 msgid "Video"
 msgstr "影像"
@@ -1091,9 +1292,9 @@ msgstr "電影網址"
 
 #: plugins/video/models.py:10
 msgid ""
-"vimeo or youtube video url. Example: http://www.youtube.com/watch?v"
-"=YFa59lK-kpo"
-msgstr "vimeo 或 YouTube 影像網址。例如：http://www.youtube.com/watch?v=YFa59lK-kpo"
+"vimeo or youtube video url. Example: http://www.youtube.com/watch?v=-"
+"iJ7bs4mTUY"
+msgstr ""
 
 #: plugins/video/models.py:11
 msgid "preview image file"
@@ -1154,15 +1355,9 @@ msgstr "進入按鈕顏色"
 msgid "button highlight color"
 msgstr "按鈕突出顯示顏色"
 
-#: plugins/video/templates/cms/plugins/video.html:3
-msgid ""
-"Missing flash plugin. Download <a "
-"href=\"http://adobe.com/flashplayer\">here</a>"
-msgstr "欠缺 flash 插件。<a href=\"http://adobe.com/flashplayer\">這裡</a>下載"
-
 #: templates/admin/page_submit_line.html:3
-#: templates/admin/cms/page/change_form.html:273
-#: templates/admin/cms/page/plugin_change_form.html:112
+#: templates/admin/cms/page/change_form.html:277
+#: templates/admin/cms/page/plugin_change_form.html:119
 msgid "Save"
 msgstr "儲存"
 
@@ -1180,7 +1375,7 @@ msgid "Save and add another"
 msgstr "儲存並添加另一個"
 
 #: templates/admin/page_submit_line.html:13
-#: templates/admin/cms/page/change_form.html:274
+#: templates/admin/cms/page/change_form.html:278
 msgid "Save and continue editing"
 msgstr "儲存並繼續編輯"
 
@@ -1188,8 +1383,7 @@ msgstr "儲存並繼續編輯"
 #: templates/admin/cms/mail/approvement_required.txt:5
 #, python-format
 msgid ""
-"Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
-"you."
+"Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by you."
 msgstr "網頁<a href=\"%(admin_url)s\">%(page)s</a>可能需要你的核准。"
 
 #: templates/admin/cms/mail/approvement_required.html:8
@@ -1217,92 +1411,92 @@ msgstr "用戶名稱："
 msgid "Password:"
 msgstr "密碼："
 
-#: templates/admin/cms/page/change_form.html:3
+#: templates/admin/cms/page/change_form.html:4
 #: templates/admin/cms/page/plugin_forms_history.html:3
-#: templates/admin/cms/page/plugin_forms_ok.html:3
+#: templates/admin/cms/page/plugin_forms_ok.html:4
 msgid "Change a page"
 msgstr "修改一個網頁"
 
-#: templates/admin/cms/page/change_form.html:62
+#: templates/admin/cms/page/change_form.html:65
 #: templates/admin/cms/page/change_list.html:8
-#: templates/admin/cms/page/plugin_change_form.html:67
+#: templates/admin/cms/page/plugin_change_form.html:73
 #: templates/admin/cms/page/recover_form.html:14
 #: templates/admin/cms/page/revision_form.html:6
 msgid "Home"
 msgstr "首頁"
 
-#: templates/admin/cms/page/change_form.html:71
+#: templates/admin/cms/page/change_form.html:74
 msgid "Approve page deletion"
 msgstr "核准刪除網頁"
 
-#: templates/admin/cms/page/change_form.html:77
+#: templates/admin/cms/page/change_form.html:80
 #, python-format
 msgid "(requires approvement at %(moderation_level)s level)"
 msgstr "(需要在 %(moderation_level)s 層級核准)"
 
-#: templates/admin/cms/page/change_form.html:78
+#: templates/admin/cms/page/change_form.html:81
 msgid "(you can perform actions on this page directly)"
 msgstr "(您可以直接在此網頁執行操作)"
 
-#: templates/admin/cms/page/change_form.html:91
+#: templates/admin/cms/page/change_form.html:94
 msgid "Remove delete request"
 msgstr "移除刪除請求"
 
-#: templates/admin/cms/page/change_form.html:93
+#: templates/admin/cms/page/change_form.html:96
 msgid "Approve delete"
 msgstr "核准刪除"
 
-#: templates/admin/cms/page/change_form.html:93
+#: templates/admin/cms/page/change_form.html:96
 msgid "Approve"
 msgstr "核准"
 
-#: templates/admin/cms/page/change_form.html:93
-#: templates/admin/cms/page/change_form.html:94
+#: templates/admin/cms/page/change_form.html:96
+#: templates/admin/cms/page/change_form.html:97
 #: templates/admin/cms/page/change_list_tree.html:12
 msgid "draft"
 msgstr "草稿"
 
-#: templates/admin/cms/page/change_form.html:94
+#: templates/admin/cms/page/change_form.html:97
 msgid "Preview"
 msgstr "預覽"
 
-#: templates/admin/cms/page/change_form.html:97
+#: templates/admin/cms/page/change_form.html:100
 #: templates/admin/cms/page/revision_form.html:10
 msgid "History"
 msgstr "歷史"
 
-#: templates/admin/cms/page/change_form.html:98
+#: templates/admin/cms/page/change_form.html:101
 msgid "View on site"
 msgstr "於網站上查看"
 
-#: templates/admin/cms/page/change_form.html:128
-#: templates/admin/cms/page/plugin_change_form.html:84
+#: templates/admin/cms/page/change_form.html:131
+#: templates/admin/cms/page/plugin_change_form.html:90
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] ""
 
-#: templates/admin/cms/page/change_form.html:148
+#: templates/admin/cms/page/change_form.html:151
 msgid "All permissions"
 msgstr "所有權限"
 
-#: templates/admin/cms/page/change_form.html:149
-#: templates/admin/cms/page/change_form.html:161
+#: templates/admin/cms/page/change_form.html:152
+#: templates/admin/cms/page/change_form.html:164
 #: templates/admin/cms/page/loading.html:2
 msgid "Loading..."
 msgstr "載入中..."
 
-#: templates/admin/cms/page/change_form.html:160
+#: templates/admin/cms/page/change_form.html:163
 msgid "Page states"
 msgstr "網頁狀態"
 
-#: templates/admin/cms/page/change_form.html:183
+#: templates/admin/cms/page/change_form.html:188
 #, python-format
 msgid ""
-"This page must be moderated at level %(moderation_level)s, post a "
-"message for moderator."
+"This page must be moderated at level %(moderation_level)s, post a message "
+"for moderator."
 msgstr "這個頁面必須在 %(moderation_level)s 層級被管制，請發送訊息給管制者。"
 
-#: templates/admin/cms/page/change_form.html:185
+#: templates/admin/cms/page/change_form.html:190
 msgid "Request approvemet"
 msgstr "要求核准"
 
@@ -1310,41 +1504,41 @@ msgstr "要求核准"
 msgid "List of pages"
 msgstr "網頁列表"
 
-#: templates/admin/cms/page/change_list.html:56
+#: templates/admin/cms/page/change_list.html:59
 msgid "Successfully moved"
 msgstr "成功地被搬移"
 
-#: templates/admin/cms/page/change_list.html:61
+#: templates/admin/cms/page/change_list.html:68
 msgid "An error occured. Please reload the page"
 msgstr "發生一個錯誤。請重新載入網頁"
 
-#: templates/admin/cms/page/change_list.html:82
+#: templates/admin/cms/page/change_list.html:90
 #, python-format
 msgid "Recover deleted %(name)s"
 msgstr "復原已刪除的 %(name)s"
 
-#: templates/admin/cms/page/change_list.html:85
+#: templates/admin/cms/page/change_list.html:93
 #, python-format
 msgid "Add %(name)s"
 msgstr "添加 %(name)s"
 
-#: templates/admin/cms/page/change_list.html:97
+#: templates/admin/cms/page/change_list.html:105
 msgid "Pages on:"
 msgstr "網頁位於："
 
-#: templates/admin/cms/page/change_list.html:114
+#: templates/admin/cms/page/change_list.html:122
 msgid "Filter:"
 msgstr "篩選器："
 
-#: templates/admin/cms/page/change_list.html:114
+#: templates/admin/cms/page/change_list.html:122
 msgid "on"
 msgstr "開"
 
-#: templates/admin/cms/page/change_list.html:114
+#: templates/admin/cms/page/change_list.html:122
 msgid "off"
 msgstr "關"
 
-#: templates/admin/cms/page/change_list.html:116
+#: templates/admin/cms/page/change_list.html:124
 msgid "Filter"
 msgstr "篩選器"
 
@@ -1368,7 +1562,11 @@ msgstr "開始"
 msgid "end"
 msgstr "結束"
 
-#: templates/admin/cms/page/change_list_tree.html:18
+#: templates/admin/cms/page/change_list_tree.html:17
+msgid "restricted"
+msgstr ""
+
+#: templates/admin/cms/page/change_list_tree.html:19
 msgid "last changes"
 msgstr "最新的更改"
 
@@ -1382,8 +1580,7 @@ msgid "edit this page"
 msgstr "編輯本頁"
 
 #: templates/admin/cms/page/menu_item.html:6
-#: templates/cms/toolbar/toolbar.html:206
-#: templates/cms/toolbar/toolbar.html:232
+#: templates/cms/toolbar/toolbar.html:63
 msgid "edit"
 msgstr "編輯"
 
@@ -1438,27 +1635,21 @@ msgstr "添加子網頁"
 msgid "add"
 msgstr "添加"
 
-#: templates/admin/cms/page/menu_item.html:65
-#: templates/cms/toolbar/toolbar.html:166
+#: templates/admin/cms/page/menu_item.html:61
 msgid "Approve directly"
 msgstr "直接核准"
 
-#: templates/admin/cms/page/menu_item.html:67
-#: templates/admin/cms/page/menu_item.html:79
-#: templates/admin/cms/page/menu_item.html:81
+#: templates/admin/cms/page/menu_item.html:63
+#: templates/admin/cms/page/menu_item.html:75
+#: templates/admin/cms/page/menu_item.html:77
 msgid "view"
 msgstr "查看"
 
-#: templates/admin/cms/page/menu_item.html:72
+#: templates/admin/cms/page/menu_item.html:68
 msgid "Unpublish"
 msgstr "取消發佈"
 
-#: templates/admin/cms/page/menu_item.html:73
-#: templates/cms/toolbar/toolbar.html:171
-msgid "Publish"
-msgstr "發佈"
-
-#: templates/admin/cms/page/menu_item.html:79
+#: templates/admin/cms/page/menu_item.html:75
 msgid "View on page"
 msgstr "在網頁查看"
 
@@ -1502,28 +1693,41 @@ msgstr "允許更改權限"
 msgid "Can move"
 msgstr "允許搬移"
 
-#: templates/admin/cms/page/permissions.html:20
+#: templates/admin/cms/page/permissions.html:14
+msgid "Can view"
+msgstr ""
+
 #: templates/admin/cms/page/permissions.html:21
+#: templates/admin/cms/page/permissions.html:22
 msgid "(global)"
 msgstr "(全站)"
 
-#: templates/admin/cms/page/permissions.html:25
+#: templates/admin/cms/page/permissions.html:26
 msgid "(current)"
 msgstr "(目前)"
 
-#: templates/admin/cms/page/permissions.html:41
+#: templates/admin/cms/page/permissions.html:43
 msgid "All"
 msgstr "全部"
 
-#: templates/admin/cms/page/permissions.html:49
+#: templates/admin/cms/page/permissions.html:51
 msgid "Page doesn't inherit any permissions."
 msgstr "網頁不繼承任何權限"
+
+#: templates/admin/cms/page/plugin_change_form.html:120
+#: templates/cms/toolbar/toolbar.html:29
+msgid "Cancel"
+msgstr ""
 
 #: templates/admin/cms/page/plugin_forms_history.html:9
 msgid "An old revision of a plugin can not be saved!"
 msgstr "無法儲存插件的舊修定版！"
 
-#: templates/admin/cms/page/plugin_forms_ok.html:17
+#: templates/admin/cms/page/plugin_forms_ok.html:26
+msgid "Your changes to this plugin have not been saved."
+msgstr ""
+
+#: templates/admin/cms/page/plugin_forms_ok.html:26
 msgid "Plugin saved successfully."
 msgstr "插件儲存成功。"
 
@@ -1558,7 +1762,6 @@ msgid "Generic"
 msgstr ""
 
 #: templates/admin/cms/page/widgets/installed_plugins_inc.html:15
-#: templates/cms/toolbar/add_plugins.html:6
 msgid "Add Plugin"
 msgstr "添加插件"
 
@@ -1582,216 +1785,168 @@ msgstr "沒有選擇任何插件。請在左側選擇一個"
 msgid "No Plugins present. Add a plugin to this placeholder-slot."
 msgstr "沒有任何插件存在。請添加插件到這個佔位空間插槽。"
 
-#: templates/cms/toolbar/add_plugins.html:10
+#: templates/cms/toolbar/placeholder.html:33
 msgid "Available plugins"
 msgstr ""
 
-#: templates/cms/toolbar/toolbar.html:33
-#, python-format
-msgid "Move to %(name)s"
-msgstr "搬移到 %(name)s"
+#: templates/cms/toolbar/toolbar.html:27
+msgid "The selected element can not be moved to the desired location."
+msgstr ""
 
-#: templates/cms/toolbar/toolbar.html:34
+#: templates/cms/toolbar/toolbar.html:28
 msgid "Are you sure you want to delete this plugin?"
 msgstr "你確定要刪除這個插件？"
 
-#: templates/cms/toolbar/toolbar.html:136
-msgid "Edit mode"
-msgstr "編輯模式"
-
-#: templates/cms/toolbar/toolbar.html:142
-msgid "Status"
-msgstr "狀態"
-
-#: templates/cms/toolbar/toolbar.html:153
-msgid "Username"
-msgstr "用戶名稱"
-
-#: templates/cms/toolbar/toolbar.html:157
-#: templates/cms/toolbar/toolbar.html:158
-msgid "login"
-msgstr "登入"
-
-#: templates/cms/toolbar/toolbar.html:175
-msgid "Request Approval"
-msgstr ""
-
-#: templates/cms/toolbar/toolbar.html:184
-msgid "Template"
-msgstr "模板"
-
-#: templates/cms/toolbar/toolbar.html:195
-msgid "move"
-msgstr "搬移"
-
-#: templates/cms/toolbar/toolbar.html:195
-msgid "Move/add Pages"
-msgstr "搬移/添加頁面"
-
-#: templates/cms/toolbar/toolbar.html:197
-msgid "add child"
-msgstr "添加子網頁"
-
-#: templates/cms/toolbar/toolbar.html:197
-msgid "Add child page"
-msgstr "添加子網頁"
-
-#: templates/cms/toolbar/toolbar.html:198
-msgid "add sibling"
-msgstr "添加同級網頁"
-
-#: templates/cms/toolbar/toolbar.html:198
-msgid "Add sibling page"
-msgstr "添加同級網頁"
-
-#: templates/cms/toolbar/toolbar.html:200
-msgid "Delete Page"
-msgstr "刪除網頁"
-
-#: templates/cms/toolbar/toolbar.html:206
-msgid "Site Administration"
-msgstr "網站管理"
-
-#: templates/cms/toolbar/toolbar.html:208
-msgid "Page Settings"
-msgstr "網頁設置"
-
-#: templates/cms/toolbar/toolbar.html:210
-msgid "history"
-msgstr "歷史"
-
-#: templates/cms/toolbar/toolbar.html:210
-msgid "View History"
-msgstr "查看歷史"
-
-#: templates/cms/toolbar/toolbar.html:218
-#: templates/cms/toolbar/toolbar.html:219
-msgid "Logout"
-msgstr "登出"
-
-#: templates/cms/toolbar/toolbar.html:219
-msgid "Lock"
-msgstr "鎖定"
-
-#: templates/cms/toolbar/toolbar.html:223
-msgid "Close"
-msgstr "關閉"
-
-#: templates/cms/toolbar/toolbar.html:234
+#: templates/cms/toolbar/toolbar.html:64
 msgid "up"
 msgstr "上"
 
-#: templates/cms/toolbar/toolbar.html:235
+#: templates/cms/toolbar/toolbar.html:65
 msgid "down"
 msgstr "下"
 
-#: templates/cms/toolbar/toolbar.html:237
-msgid "Settings"
-msgstr "設置"
+#: templates/cms/toolbar/toolbar.html:70
+msgid "Move to placeholder"
+msgstr ""
 
-#: templates/cms/toolbar/toolbar.html:239
-msgid "Delete Plugin"
-msgstr "刪除插件"
+#: templates/cms/toolbar/items/login.html:5
+msgid "Username"
+msgstr "用戶名稱"
 
-#: templatetags/cms_admin.py:85
+#: templates/cms/toolbar/items/login.html:10
+#: templates/cms/toolbar/items/login.html:12
+msgid "Login"
+msgstr ""
+
+#: templates/cms/toolbar/items/status.html:2
+msgid "Status"
+msgstr "狀態"
+
+#: templates/cms/toolbar/items/switcher.html:4
+msgid "Switch on/off"
+msgstr ""
+
+#: templatetags/cms_admin.py:127 templatetags/cms_admin.py:134
+#, python-format
+msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"
+msgstr ""
+
+#: templatetags/cms_admin.py:147
 msgid "Unbind page moderation"
 msgstr "取消網頁管制"
 
-#: templatetags/cms_admin.py:86
+#: templatetags/cms_admin.py:148
 msgid "Unbind children moderation"
 msgstr "取消子網頁管制"
 
-#: templatetags/cms_admin.py:87
+#: templatetags/cms_admin.py:149
 msgid "Unbind descendants moderation"
 msgstr "取消下層網頁管制"
 
-#: templatetags/cms_tags.py:78
+#: templatetags/cms_tags.py:79
 #, python-format
 msgid "Page not found on %(domain)s"
 msgstr ""
 
-#: templatetags/cms_tags.py:79
+#: templatetags/cms_tags.py:80
 #, python-format
 msgid ""
-"A template tag couldn't find the page with lookup arguments `%(page_lookup)s\n"
+"A template tag couldn't find the page with lookup arguments `"
+"%(page_lookup)s\n"
 "`. The URL of the request was: http://%(host)s%(path)s"
 msgstr ""
 
-#: test/run_tests.py:137 test/project/settings.py:116
+#: test_utils/cli.py:100 test_utils/cli.py:107
 msgid "English"
 msgstr ""
 
-#: test/run_tests.py:138 test/project/settings.py:117
+#: test_utils/cli.py:101 test_utils/cli.py:108
 msgid "French"
 msgstr ""
 
-#: test/run_tests.py:139 test/project/settings.py:118
+#: test_utils/cli.py:102 test_utils/cli.py:109
 msgid "German"
 msgstr ""
 
-#: test/run_tests.py:140 test/project/settings.py:119
+#: test_utils/cli.py:103 test_utils/cli.py:110
 msgid "Brazil"
 msgstr ""
 
-#: test/run_tests.py:141 test/project/settings.py:120
+#: test_utils/cli.py:104 test_utils/cli.py:111
 msgid "Dutch"
 msgstr ""
 
-#: test/run_tests.py:158 test/project/settings.py:137
+#: test_utils/cli.py:128
 msgid "two columns"
 msgstr ""
 
-#: test/run_tests.py:159 test/project/settings.py:138
+#: test_utils/cli.py:129
 msgid "three columns"
 msgstr ""
 
-#: test/run_tests.py:160 test/project/settings.py:139
+#: test_utils/cli.py:130
 msgid "navigation examples"
 msgstr ""
 
-#: test/run_tests.py:167 test/project/settings.py:148
+#: test_utils/cli.py:136
 msgid "sidebar column"
-msgstr ""
+msgstr "搜尋條桿背景顏色"
 
-#: test/run_tests.py:173 test/project/settings.py:154
+#: test_utils/cli.py:142
 msgid "left column"
-msgstr ""
+msgstr "搜尋條桿背景顏色"
 
-#: test/run_tests.py:179 test/project/settings.py:160
+#: test_utils/cli.py:148
 msgid "right column"
+msgstr "搜尋條桿背景顏色"
+
+#: test_utils/project/placeholderapp/cms_plugins.py:7
+msgid "Test Plugin"
 msgstr ""
 
-#: test/apps/pluginapp/plugins/manytomany_rel/cms_plugins.py:13
+#: test_utils/project/pluginapp/plugins/extra_context/cms_plugins.py:9
+msgid "Extra Context"
+msgstr ""
+
+#: test_utils/project/pluginapp/plugins/manytomany_rel/cms_plugins.py:13
 msgid "Articles"
 msgstr ""
 
-#: test/apps/sampleapp/cms_app.py:7
+#: test_utils/project/sampleapp/cms_app.py:7
 msgid "Sample App"
 msgstr ""
 
-#: test/apps/sampleapp/menu.py:17
+#: test_utils/project/sampleapp/menu.py:16
 msgid "sample root page"
 msgstr ""
 
-#: test/apps/sampleapp/menu.py:18
+#: test_utils/project/sampleapp/menu.py:17
 msgid "sample settings page"
 msgstr ""
 
-#: test/apps/sampleapp/menu.py:19
+#: test_utils/project/sampleapp/menu.py:18
 msgid "sample account page"
 msgstr ""
 
-#: test/apps/sampleapp/menu.py:20
+#: test_utils/project/sampleapp/menu.py:19
 msgid "sample my profile page"
 msgstr ""
 
-#: test/apps/sampleapp/menu.py:32
+#: test_utils/project/sampleapp/menu.py:31
 msgid "Static Menu"
 msgstr ""
 
-#: test/apps/sampleapp/menu.py:48
+#: test_utils/project/sampleapp/menu.py:47
 msgid "Static Menu2"
 msgstr ""
+
+#: utils/mail.py:37
+msgid "CMS - your user account was created."
+msgstr "CMS - 您的用戶帳號已被建立。"
+
+#: utils/mail.py:39
+msgid "CMS - your user account was changed."
+msgstr "CMS - 您的用戶帳號已被更改。"
 
 #: utils/moderator.py:83
 msgid "parent first"
@@ -1806,16 +1961,23 @@ msgstr "核准"
 msgid "CMS - Page %s requires approvement."
 msgstr "CMS - 網頁 %s 需要核准。"
 
-#: utils/permissions.py:206
-msgid "CMS - your user account was created."
-msgstr "CMS - 您的用戶帳號已被建立。"
+#: utils/page_resolver.py:146
+msgid "Invalid URL, use /my/url format."
+msgstr "無效的 URL，請使用類似 /my/url 的格式。"
 
-#: utils/permissions.py:208
-msgid "CMS - your user account was changed."
-msgstr "CMS - 您的用戶帳號已被更改。"
+#: utils/page_resolver.py:176
+#, python-format
+msgid ""
+"Page %(pages)s has the same url '%(url)s' as current page \"%(instance)s\"."
+msgid_plural ""
+"Pages %(pages)s have the same url '%(url)s' as current page \"%(instance)s\"."
+msgstr[0] ""
+
+#~ msgid "move"
+#~ msgstr "move request"
 
 #~ msgid "fgcolor"
-#~ msgstr ""
+#~ msgstr "foreground color"
 
 #~ msgid "Wanted language has not been translated yet."
-#~ msgstr ""
+#~ msgstr "Requested language has not been translated yet."

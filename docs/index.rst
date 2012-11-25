@@ -4,10 +4,25 @@
    contain the root `toctree` directive.
 
 ######################################
-Welcome to django cms's documentation!
+Welcome to django CMS's documentation!
 ######################################
 
 This document refers to version |release|
+
+*******
+Install
+*******
+
+.. toctree::
+    :maxdepth: 1
+
+    getting_started/installation
+    upgrade/2.3.4
+    upgrade/2.3.3
+    upgrade/2.3.2
+    upgrade/2.3
+    upgrade/2.2
+    upgrade/2.1
 
 ***************
 Getting Started
@@ -17,12 +32,12 @@ Getting Started
     :maxdepth: 2
     :numbered:
 
-    getting_started/installation
     getting_started/tutorial
     getting_started/using_south
     getting_started/configuration
     getting_started/navigation
     getting_started/plugin_reference
+    faq/common_issues
     
 
 ********
@@ -36,6 +51,8 @@ Advanced
     advanced/i18n
     advanced/sitemap
     advanced/templatetags
+    advanced/cli
+    advanced/permissions_reference
 
 
 *****************
@@ -52,11 +69,25 @@ Extending the CMS
     extending_cms/api_references
     extending_cms/placeholders
     extending_cms/searchdocs
+    extending_cms/fields
 
 
-***********************
-Contributing to the CMS
-***********************
+********
+Concepts
+********
+
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+
+    concepts/introduction
+    concepts/menu_system
+    concepts/multiple_languages
+
+
+**************************
+Contributing to django CMS
+**************************
 
 .. toctree::
     :maxdepth: 2

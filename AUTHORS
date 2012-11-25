@@ -1,12 +1,19 @@
 Current or previous core committers:
 
+* Angelo Dini
+* Beni Wohlwend
 * Chris Glass
+* Daniele Procida
 * Eric Robitaille
 * Jonas Obrist
 * Patrick Lauber
 * Peter Ciciman
 * Stefan Foulis
 * Øyvind Saltvik
+
+Current and previous core designers:
+
+* Christian Bertschy
 
 Contributors (in alphabetical order):
 
@@ -15,30 +22,45 @@ Contributors (in alphabetical order):
 * Aaron Renner
 * aball
 * Adi Sieker
+* Adrián Ribao
 * Alberto Paro
 * Alessandro Ronchi
-* Angelo Dini
+* Aleš Kocjančič
+* Alex Cucu
+* Alexandre Leray
+* Alexey Subbotin
+* Alvin Mites
+* Andrew Cassidy
+* Andrew Schoen
 * angular_circle
+* Anton Parkhomenko
 * Antoni Aloy López
 * Arne Gellhaus
 * Artem Skoretskiy
 * Arthur Debert
+* Aymeric Augustin
 * Batiste Bieler
 * behrooz
 * Behrooz Nobakht
 * Benjamin Wohlwend
 * Bernd Zeimetz
+* Bertrand Bordage
 * beshrkayali
 * Bob Karreman
+* Bouke Haarsma
+* Braden MacDonald
 * brightwhitefox
+* Calvin Cheng
 * Chanita Siridechkun
 * Charpentier Johan
 * Cheng-Chia Tseng
 * Chris Adams
 * Chris Hughes
+* Chris Wesseling
 * Christof Hagedorn
-* daniele
+* Conrado Bührer
 * DaNmarner
+* Daniel Barden
 * Darryl Woods
 * David Jean Louis
 * David Thompson
@@ -48,19 +70,31 @@ Contributors (in alphabetical order):
 * eged
 * Egor V. Nazarkin
 * Ekrem Seren
+* Erlend Dalen
+* Eric Eldredge
+* Erik Allik
+* Eugen MechanisM
 * Evandro Miquelito
+* F. Gabriel Gosselin
 * f4nt
 * fcurella
 * Filip Kazimierczak
+* Frank Bieniek
+* Gabe Jackson
+* Gabriel Hurley
 * GaretJax
+* Geoffrey Hing
 * George Marshall
 * Gerard Świderski
+* guandalino
+* hedberg
+* Herbert Poul
 * homebrew79
 * hysia
 * Iacopo Spalletti
 * Ian Lewis
 * indexofire
-* Ionel Maries Cristian
+* Ionel Cristian Maries
 * Ivan Vershigora
 * izi
 * Jameel Al-Aziz
@@ -75,8 +109,13 @@ Contributors (in alphabetical order):
 * John-Scott Atlakson
 * Jonathan Stoppani
 * jordanjambazov
+* Jorge Vargas (elpargo)
+* Joseph Bergantine
 * kar1m
+* Keryn Knight
+* Kim Blomqvist
 * kochin
+* Kristian Øllegaard
 * Krzysztof Bandurski
 * kunitoki
 * Lars Smit
@@ -84,17 +123,21 @@ Contributors (in alphabetical order):
 * limpbrains :P
 * Lucas Vogelsang
 * Lucio Asnaghi
+* Luke Crooks
 * Luke Plant
 * m000
 * Maik Lustenberger
 * Manolis Stamatogiannakis
 * Manuel Schmidt
+* Marco Bonetti
 * Marco Rimoldi
 * Mark Rogers
 * Martin Bommeli
+* Martin Brochhaus
 * Martin Kosír
 * martinkosir
 * mathijs
+* Matt Chisholm
 * Maxim Bodyansky
 * Maxime Haineault
 * mbouchar
@@ -102,13 +145,18 @@ Contributors (in alphabetical order):
 * meers
 * MerLex
 * Mokys
+* Mike Johnson
+* Mitar
 * mrlundis
 * MW
 * neoprolog
+* Nickolay V. Shmyrev
 * Orne Brocaar
 * padelt
+* Paolo
 * Patrick Toal
 * Paul van der Linden
+* Pavel Puchkin
 * pbgc
 * Pedro Gracia
 * Pete Loggie
@@ -121,37 +169,49 @@ Contributors (in alphabetical order):
 * pigletto
 * Piotr Kilczuk
 * poweredbypenguins
+* Rebecca Breu
 * Remco Wendt
 * Restless Being
+* Richard Barran
+* Robert Buchholz
+* Robert Clark
 * Robert Pogorzelski
+* Robin Lewis
 * Rodolfo Carvalho
 * rtpm
 * Samuel Lüscher
+* Scott Barnham
 * sealibora
 * Sean Bleier
+* Seth Buntin
 * Seyhun Akyurek
 * Shatalov Vadim
 * shed
 * Shinya Okano
 * Simon Hedberg
 * Simon Meers
+* Simon Charette
 * sleytr
 * spookylukey
 * ssteinerX
 * Stavros Korokithakis
+* Stephan Jaekel
+* Stephen Muss
 * Steve R. Jones
 * Steve Steiner
 * Tanel Külaots
 * Thomas Parslow
 * timesong
+* Tim Davies
 * Tino de Bruijn
 * tiret
 * Ulrich Petri
+* Vasil Vangelovski
+* Viliam Segeda
 * wangJunjie
 * Wayne Moore
 * wid
 * wildermesser
-* Yann Malet
 * Yann Malet
 * yedpodtrzitko
 * yohanboniface

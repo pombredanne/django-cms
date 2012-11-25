@@ -1,17 +1,21 @@
-############
-Templatetags
-############
+#############
+Template Tags
+#############
 
 .. highlightlang:: html+django
 
-To use any of the following templatetags you need to load them first at the
+To use any of the following templatetags you first need to load them at the
 top of your template::
 
     {% load cms_tags menu_tags %}
 
+.. templatetag:: placeholder
+
 ***********
 placeholder
 ***********
+.. versionchanged:: 2.1
+    The placeholder name became case sensitive.
 
 The ``placeholder`` templatetag defines a placeholder on a page. All
 placeholders in a template will be auto-detected and can be filled with
@@ -25,7 +29,7 @@ Example::
 If you want additional content to be displayed in case the placeholder is
 empty, use the ``or`` argument and an additional ``{% endplaceholder %}``
 closing tag. Everything between ``{% placeholder "..." or %}`` and ``{%
-endplaceholder %}`` is rendered instead if the placeholder has no plugins or
+endplaceholder %}`` is rendered in the event that the placeholder has no plugins or
 the plugins do not generate any output.
 
 Example::
@@ -33,7 +37,7 @@ Example::
     {% placeholder "content" or %}There is no content.{% endplaceholder %}
 
 If you want to add extra variables to the context of the placeholder, you
-should use Django's ``with`` tag. For instance, if you want to resize images
+should use Django's :ttag:`with` tag. For instance, if you want to resize images
 from your templates according to a context variable called ``width``, you can
 pass it as follows::
 
@@ -44,18 +48,20 @@ same name on parent pages, simply pass the ``inherit`` argument::
 
     {% placeholder "content" inherit %}
 
-This will walk the page tree up till the root page and will show the first
-placeholde it can find with content.
+This will walk up the page tree up until the root page and will show the first
+placeholder it can find with content.
 
 It's also possible to combine this with the ``or`` argument to show an
-ultimate fallback if the placeholder and non of the placeholders on parent
+ultimate fallback if the placeholder and none of the placeholders on parent
 pages have plugins that generate content::
 
     {% placeholder "content" inherit or %}There is no spoon.{% endplaceholder %}
 
-See also the ``PLACEHOLDER_CONF`` setting where you can also add extra context
-variables and change some other placeholder behavior.
+See also the :setting:`CMS_PLACEHOLDER_CONF` setting where you can also add extra
+context variables and change some other placeholder behavior.
 
+
+.. templatetag:: show_placeholder
 
 ****************
 show_placeholder
@@ -84,12 +90,12 @@ Page Lookup
 The ``page_lookup`` argument, passed to several templatetags to retrieve a
 page, can be of any of the following types:
 
-* String: interpreted as the ``reverse_id`` field of the desired page, which
+* :class:`str <basestring>`: interpreted as the ``reverse_id`` field of the desired page, which
   can be set in the "Advanced" section when editing a page.
-* Integer: interpreted as the primary key (``pk`` field) of the desired page
-* ``dict``: a dictionary containing keyword arguments to find the desired page
+* :class:`int`: interpreted as the primary key (``pk`` field) of the desired page
+* :class:`dict`: a dictionary containing keyword arguments to find the desired page
   (for instance: ``{'pk': 1}``)
-* ``Page``: you can also pass a page object directly, in which case there will
+* :class:`~cms.models.Page`: you can also pass a page object directly, in which case there will
   be no database lookup.
 
 If you know the exact page you are referring to, it is a good idea to use a
@@ -105,7 +111,7 @@ that ``reverse_id`` with the appropriate templatetags::
 
 If you are referring to a page `relative` to the current page, you'll probably
 have to use a numeric page ID or a page object. For instance, if you want the
-content of the parent page display on the current page, you can use::
+content of the parent page to display on the current page, you can use::
 
     {% show_placeholder "content" request.current_page.parent_id %}
 
@@ -118,11 +124,13 @@ inherit the content of its root-level ancestor::
     {% endplaceholder %}
 
 
+.. templatetag:: show_uncached_placeholder
+
 *************************
 show_uncached_placeholder
 *************************
 
-The same as ``show_placeholder``, but the placeholder contents will not be
+The same as :ttag:`show_placeholder`, but the placeholder contents will not be
 cached.
 
 Arguments:
@@ -136,34 +144,7 @@ Example::
 
     {% show_uncached_placeholder "footer" "footer_container_page" %}
 
-
-*************
-plugins_media
-*************
-
-Outputs the appropriate tags to include all media that is used by the plugins
-on a page (defined using the ``Media`` class in the plugin class).
-
-You normally want to place this in your ``<head>`` tag.
-
-Example::
-
-    {% plugins_media %}
-
-Arguments:
-
-- ``page_lookup`` (optional; see `Page Lookup`_ for more
-  information)
-
-If you need to include the media from another page, for instance if you are
-using a placeholder from another page using the `show_placeholder`_ tag, you
-can supply the ``page_lookup`` attribute to indicate the page in question::
-
-    {% plugins_media "teaser" %}
-
-For a reference on what plugin media is required by a specific plugin, look at
-that plugin's reference.
-
+.. templatetag:: page_url
 
 ********
 page_url
@@ -180,6 +161,7 @@ Example::
     <a href="{% page_url "help" %}">Help page</a>
     <a href="{% page_url request.current_page.parent %}">Parent page</a>
 
+.. templatetag:: page_attribute
 
 **************
 page_attribute
@@ -212,6 +194,23 @@ Example::
     {% page_attribute "page_title" request.current_page.parent_id %}
     {% page_attribute "slug" request.current_page.get_root %}
 
+.. versionadded:: 2.3.2
+    This template tag supports the ``as`` argument. With this you can assign the result
+    of the template tag to a new variable that you can use elsewhere in the template.
+
+    Example::
+
+        {% page_attribute "page_title" as title %}
+        <title>{{ title }}</title>
+
+    It even can be used in combination with the ``page_lookup`` argument.
+
+    Example::
+
+        {% page_attribute "page_title" "my_page_reverse_id" as title %}
+        <a href="/mypage/">{{ title }}</a>
+
+.. templatetag:: show_menu
 
 *********
 show_menu
@@ -224,9 +223,9 @@ four optional parameters: ``start_level``, ``end_level``, ``extra_inactive``,
 and ``extra_active``.
 
 The first two parameters, ``start_level`` (default=0) and ``end_level``
-(default=100) specify from what level to which level should the navigation be
-rendered. If you have a home as a root node and don't want to display home you
-can render the navigation only after level 1.
+(default=100) specify from which level the navigation shoud be rendered
+and at which level it should stop. If you have home as a root node and don't
+want to display home you can render the navigation only after level 1.
 
 The third parameter, ``extra_inactive`` (default=0), specifies how many levels
 of navigation should be displayed if a node is not a direct ancestor or
@@ -267,6 +266,8 @@ Navigation with a custom template::
     {% show_menu 0 100 100 100 "myapp/menu.html" %}
 
 
+.. templatetag:: show_menu_below_id
+
 ******************
 show_menu_below_id
 ******************
@@ -285,13 +286,14 @@ You can give it the same optional parameters as ``show_menu``::
         {% show_menu_below_id "meta" 0 100 100 100 "myapp/menu.html" %}
     </ul>
 
+.. templatetag:: show_sub_menu
 
 *************
 show_sub_menu
 *************
 
 Displays the sub menu of the current page (as a nested list).
-Takes one argument that specifies how many levels deep should the submenu be
+Takes one argument that specifies how many levels deep the submenu should be
 displayed. The template can be found at ``cms/sub_menu.html``::
 
     <ul>
@@ -304,6 +306,7 @@ Or with a custom template::
         {% show_sub_menu 1 "myapp/submenu.html" %}
     </ul>
 
+.. templatetag:: show_breadcrumb
 
 ***************
 show_breadcrumb
@@ -344,6 +347,7 @@ And then in your app template::
     <li>My current page</li>
     {% endblock %}
 
+.. templatetag:: page_language_url
 
 *****************
 page_language_url
@@ -356,11 +360,12 @@ Returns the url of the current page in an other language::
     {% page_language_url en %}
 
 If the current url has no cms-page and is handled by a navigation extender and
-the url changes based on the language: You will need to set a language_changer
+the url changes based on the language, you will need to set a language_changer
 function with the set_language_changer function in cms.utils.
 
 For more information, see :doc:`i18n`.
 
+.. templatetag:: language_chooser
 
 ****************
 language_chooser
@@ -380,8 +385,8 @@ or with custom template::
     
 The language_chooser has three different modes in which it will display the
 languages you can choose from: "raw" (default), "native", "current" and "short".
-It can be passed as last argument to the ``language_chooser tag`` as a string.
-In "raw" mode, the language will be displayed like it's verbose name in the
+It can be passed as the last argument to the ``language_chooser tag`` as a string.
+In "raw" mode, the language will be displayed like its verbose name in the
 settings. In "native" mode the languages are displayed in their actual language
 (eg. German will be displayed "Deutsch", Japanese as "日本語" etc). In "current"
 mode the languages are translated into the current language the user is seeing
@@ -389,7 +394,25 @@ the site in (eg. if the site is displayed in German, Japanese will be displayed
 as "Japanisch"). "Short" mode takes the language code (eg. "en") to display.
 
 If the current url has no cms-page and is handled by a navigation extender and
-the url changes based on the language: You will need to set a language_changer
-function with the set_language_changer function in cms.utils.
+the url changes based on the language, you will need to set a language_changer
+function with the set_language_changer function in menus.utils.
 
 For more information, see :doc:`i18n`.
+
+.. templatetag:: cms_toolbar
+
+***********
+cms_toolbar
+***********
+
+The ``cms_toolbar`` templatetag will add the required css and javascript to the
+sekizai blocks in the base template. The templatetag has to be placed after the
+``<body>`` tag and before any ``{% cms_placeholder %}`` occurrences within your HTML.
+
+Example::
+
+    <body>
+    {% cms_toolbar %}
+    {% placeholder "home" %}
+    ...
+
