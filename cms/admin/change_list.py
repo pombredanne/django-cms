@@ -1,32 +1,54 @@
 # -*- coding: utf-8 -*-
+import bisect
+from collections import defaultdict
 from cms.exceptions import NoHomeFound
-from cms.models import Title, Page, PageModerator
-from cms.models.moderatormodels import MASK_PAGE, MASK_CHILDREN, \
-    MASK_DESCENDANTS, PageModeratorState
+from cms.models import Title, Page, PageModeratorState
 from cms.utils.permissions import get_user_sites_queryset
 from django.conf import settings
 from django.contrib.admin.views.main import ChangeList, ALL_VAR, IS_POPUP_VAR, \
     ORDER_TYPE_VAR, ORDER_VAR, SEARCH_VAR
 from django.contrib.sites.models import Site
-from mptt.templatetags import mptt_tags
-
-
+import django
 
 COPY_VAR = "copy"
 
+
+def cache_tree_children(queryset):
+    """
+    For all items in the queryset, set the '_cached_children' attribute to a
+    list. This attribute is in turn used by the 'get_children' method on the
+    item, which would otherwise (if '_cached_children' is not set) cause a 
+    database query.
+
+    The queryset must be ordered by 'lft', or the function will put the children
+    in the wrong order.
+    """
+    parents_dict = {}
+    # Loop through the queryset twice, so that the function works even if the
+    # mptt tree is broken. Since django caches querysets internally, the extra
+    # computation time is minimal.
+    for obj in queryset:
+        parents_dict[obj.pk] = obj
+        obj._cached_children = []
+    for obj in queryset:
+        parent = parents_dict.get(obj.parent_id)
+        if parent:
+            parent._cached_children.append(obj)
+
+
 class CMSChangeList(ChangeList):
-    '''
+    """
     Renders a Changelist - In our case it looks like a tree - it's the list of
     *instances* in the Admin.
-    It is usually responsible for pagination (not here though, we have a 
+    It is usually responsible for pagination (not here though, we have a
     treeview)
-    '''
+    """
     real_queryset = False
     
     def __init__(self, request, *args, **kwargs):
-        super(CMSChangeList, self).__init__(request, *args, **kwargs)
         from cms.utils.plugins import current_site
         self._current_site = current_site(request)
+        super(CMSChangeList, self).__init__(request, *args, **kwargs)
         try:
             self.query_set = self.get_query_set(request)
         except:
@@ -40,9 +62,12 @@ class CMSChangeList(ChangeList):
     def get_query_set(self, request=None):
         if COPY_VAR in self.params:
             del self.params[COPY_VAR]
-        qs = super(CMSChangeList, self).get_query_set().drafts()
+        if django.VERSION[1] > 3:
+            qs = super(CMSChangeList, self).get_query_set(request).drafts()
+        else:
+            qs = super(CMSChangeList, self).get_query_set().drafts()
         if request:
-            site = self._current_site
+            site = self.current_site()
             permissions = Page.permissions.get_change_id_list(request.user, site)
             
             if permissions != Page.permissions.GRANT_ALL:
@@ -50,7 +75,6 @@ class CMSChangeList(ChangeList):
                 self.root_query_set = self.root_query_set.filter(pk__in=permissions)
             self.real_queryset = True
             qs = qs.filter(site=self._current_site)
-        qs = qs.order_by('tree_id', 'parent', 'lft')
         return qs
     
     def is_filtered(self):
@@ -72,10 +96,11 @@ class CMSChangeList(ChangeList):
                 self.full_result_count = self.root_query_set.count()
     
     def set_items(self, request):
-        site = self._current_site
+        site = self.current_site()
         # Get all the pages, ordered by tree ID (it's convenient to build the 
         # tree using a stack now)
-        pages = self.get_query_set(request).drafts().order_by('tree_id', 'parent', 'lft').select_related()
+        pages = self.get_query_set(request).drafts().order_by('tree_id',  'lft').select_related()
+        
         
         # Get lists of page IDs for which the current user has 
         # "permission to..." on the current site. 
@@ -87,83 +112,55 @@ class CMSChangeList(ChangeList):
         if perm_edit_ids and perm_edit_ids != Page.permissions.GRANT_ALL:
             pages = pages.filter(pk__in=perm_edit_ids)
             #pages = pages.filter(pk__in=perm_change_list_ids)   
-        
-        if settings.CMS_MODERATOR:
-            # get all ids of public instances, so we can cache them
-            # TODO: add some filtering here, so the set is the same like page set...
-            published_public_page_id_set = Page.objects.public().filter(published=True).values_list('id', flat=True)
-            
-            # get all moderations for current user and all pages
-            pages_moderator_set = PageModerator.objects \
-                .filter(user=request.user, page__site=self._current_site) \
-                .values_list('page', 'moderate_page', 'moderate_children', 'moderate_descendants')
-            # put page / moderations into singe dictionary, where key is page.id 
-            # and value is sum of moderations, so if he can moderate page and descendants
-            # value will be MASK_PAGE + MASK_DESCENDANTS
-            page_moderator = map(lambda item: (item[0], item[1] * MASK_PAGE + item[2] * MASK_CHILDREN + item[3] * MASK_DESCENDANTS), pages_moderator_set)
-            page_moderator = dict(page_moderator)
-            
-            # page moderator states
-            pm_qs = PageModeratorState.objects.filter(page__site=self._current_site)
-            pm_qs.query.group_by = ['page_id']
-            pagemoderator_states_id_set = pm_qs.values_list('page', flat=True)
-            
-        ids = []
+
         root_pages = []
         pages = list(pages)
         all_pages = pages[:] # That is, basically, a copy.
         try:
-            home_pk = Page.objects.drafts().get_home(self.current_site()).pk
+            home_pk = Page.objects.drafts().get_home(site).pk
         except NoHomeFound:
             home_pk = 0
-            
-        # Make the pages a tree (using MPTT awesomeness).
-        # This is normally a tag filter, but it's really nice in our case too:
-        # It caches children for every page in the list we pass it, so no
-        # further queries are needed.
-        mptt_tags.cache_tree_children(pages)
-        
-        for page in pages:
-            children = page.get_children()
 
-            # note: We are using change_list permission here, because we must
-            # display also pages which user must not edit, but he haves a 
-            # permission for adding a child under this page. Otherwise he would
-            # not be able to add anything under page which he can't change. 
-            if not page.parent_id or (perm_change_list_ids != Page.permissions.GRANT_ALL and not int(page.parent_id) in perm_change_list_ids):
-                page.root_node = True
-            else:
-                page.root_node = False
-            ids.append(page.pk)
-            
+        # page moderator states
+        pm_qs = PageModeratorState.objects.filter(page__in=pages).order_by('page')
+        pm_states = defaultdict(list)
+        for state in pm_qs:
+            pm_states[state.page_id].append(state)
+
+        public_page_id_set = Page.objects.public().filter(
+            published=True, publisher_public__in=pages).values_list('id', flat=True)
+
+        # Unfortunately we cannot use the MPTT builtin code for pre-caching
+        # the children here, because MPTT expects the tree to be 'complete'
+        # and otherwise complaints about 'invalid item order'
+        cache_tree_children(pages)
+        ids = dict((page.id, page) for page in pages)
+
+        for page in pages:
+
+            children = list(page.get_children())
+
+            # If the parent page is not among the nodes shown, this node should
+            # be a "root node". The filtering for this has already been made, so
+            # using the ids dictionary means this check is constant time
+            page.root_node = page.parent_id not in ids
+
             if settings.CMS_PERMISSION:
                 # caching the permissions
                 page.permission_edit_cache = perm_edit_ids == Page.permissions.GRANT_ALL or page.pk in perm_edit_ids
                 page.permission_publish_cache = perm_publish_ids == Page.permissions.GRANT_ALL or page.pk in perm_publish_ids
-                page.permission_advanced_settings_cache = perm_publish_ids == Page.permissions.GRANT_ALL or page.pk in perm_advanced_settings_ids
+                page.permission_advanced_settings_cache = perm_advanced_settings_ids == Page.permissions.GRANT_ALL or page.pk in perm_advanced_settings_ids
                 page.permission_user_cache = request.user
-            
-            if settings.CMS_MODERATOR:
-                # set public instance existence state
-                page.public_published_cache = page.publisher_public_id in published_public_page_id_set
-                
-                # moderation for current user
-                moderation_value = 0
-                try:
-                    moderation_value = page_moderator[page.pk]
-                except:
-                    pass
-                page._moderation_value_cahce = moderation_value
-                page._moderation_value_cache_for_user_id = request.user.pk
-                
-                #moderation states
-                page._has_moderator_state_chache = page.pk in pagemoderator_states_id_set
-                
+
+            page._moderator_state_cache = pm_states[page.pk]
+            page._public_published_cache = page.publisher_public_id in public_page_id_set
             if page.root_node or self.is_filtered():
                 page.last = True
                 if len(children):
                     # TODO: WTF!?!
                     # The last one is not the last... wait, what?
+                    # children should NOT be a queryset. If it is, check that
+                    # your django-mptt version is 0.5.1
                     children[-1].last = False
                 page.menu_level = 0
                 root_pages.append(page)
@@ -173,22 +170,31 @@ class CMSChangeList(ChangeList):
                     page.ancestors_ascending = []
                 page.home_pk_cache = home_pk
             
-            # childrens is the reverse accessor for the parent foreign key.
-            # We want to set it so the JSTree can display it nicely in admin.
-            # "childrens" is the fully cached version of children.
-            page.childrens = children
-        
-        # TODO: OPTIMIZE!!
-        titles = Title.objects.filter(page__in=ids)
-        for page in all_pages:# add the title and slugs and some meta data
+            # Because 'children' is the reverse-FK accessor for the 'parent'
+            # FK from Page->Page, we have to use wrong English here and set
+            # an attribute called 'childrens'. We are aware that this is WRONG
+            # but what should we do?
+            
+            # If the queryset is filtered, do NOT set the 'childrens' attribute
+            # since *ALL* pages will be in the 'root_pages' list and therefore
+            # be displayed. (If the queryset is filtered, the result is not a
+            # tree but rather a flat list).
+            if self.is_filtered():
+                page.childrens = []
+            else:
+                page.childrens = children
+
+        for page in all_pages:
             page.title_cache = {}
             page.all_languages = []
-            for title in titles:
-                if title.page_id == page.pk:
-                    page.title_cache[title.language] = title
-                    if not title.language in page.all_languages:
-                        page.all_languages.append(title.language)
-            page.all_languages.sort()
+
+        titles = Title.objects.filter(page__in=ids)
+        insort = bisect.insort # local copy to avoid globals lookup in the loop
+        for title in titles:
+            page = ids[title.page_id]
+            page.title_cache[title.language] = title
+            if not title.language in page.all_languages:
+                insort(page.all_languages, title.language)
         self.root_pages = root_pages
         
     def get_items(self):

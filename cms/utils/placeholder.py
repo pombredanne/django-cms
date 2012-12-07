@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
-from django.core.exceptions import MultipleObjectsReturned
+from django.core.exceptions import MultipleObjectsReturned, ImproperlyConfigured
 from django.db.models.query_utils import Q
 
 def get_placeholder_conf(setting, placeholder, template=None, default=None):
@@ -13,25 +13,38 @@ def get_placeholder_conf(setting, placeholder, template=None, default=None):
     CMS_PLACEHOLDER_CONF['placeholder'], if no template is given only the latter
     is checked.
     """
-    keys = []
-    if template:
-        keys.append("%s %s" % (template, placeholder))
-    keys.append(placeholder)
-    for key in keys:
-        conf = settings.CMS_PLACEHOLDER_CONF.get(key)
-        if not conf:
-            continue
-        value = conf.get(setting)
-        if value:
-            return value
+    if placeholder:
+        keys = []
+        if template:
+            keys.append("%s %s" % (template, placeholder))
+        keys.append(placeholder)
+        for key in keys:
+            conf = settings.CMS_PLACEHOLDER_CONF.get(key)
+            if not conf:
+                continue
+            value = conf.get(setting)
+            if value:
+                return value
     return default
 
 def get_page_from_placeholder_if_exists(placeholder):
-    from cms.models.pagemodel import Page
+    import warnings
+    warnings.warn(
+        "The get_page_from_placeholder_if_exists function is deprecated. Use placeholder.page instead",
+        DeprecationWarning
+    )
+    return placeholder.page if placeholder else None
+
+def validate_placeholder_name(name):
     try:
-        return Page.objects.get(placeholders=placeholder)
-    except (Page.DoesNotExist, MultipleObjectsReturned,):
-        return None
+        name.decode('ascii')
+    except (UnicodeDecodeError, UnicodeEncodeError):
+        raise ImproperlyConfigured("Placeholder identifiers names may not "
+           "contain non-ascii characters. If you wish your placeholder "
+           "identifiers to contain non-ascii characters when displayed to "
+           "users, please use the CMS_PLACEHOLDER_CONF setting with the 'name' "
+           "key to specify a verbose name.")
+
     
 class PlaceholderNoAction(object):
     can_copy = False
@@ -63,9 +76,9 @@ class MLNGPlaceholderActions(PlaceholderNoAction):
     def get_copy_languages(self, placeholder, model, fieldname, **kwargs):
         manager = model.objects
         src = manager.get(**{fieldname: placeholder})
-        q = Q(master=src.master)
-        q &= Q(**{'%s__cmsplugin__isnull' % fieldname: False})
-        q &= ~Q(pk=src.pk)
+        query = Q(master=src.master)
+        query &= Q(**{'%s__cmsplugin__isnull' % fieldname: False})
+        query &= ~Q(pk=src.pk)
         
-        language_codes = manager.filter(q).values_list('language_code', flat=True).distinct()
+        language_codes = manager.filter(query).values_list('language_code', flat=True).distinct()
         return [(lc, dict(settings.LANGUAGES)[lc]) for lc in language_codes]

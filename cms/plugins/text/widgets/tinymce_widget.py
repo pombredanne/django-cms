@@ -1,15 +1,15 @@
-from tinymce.widgets import TinyMCE, get_language_config
+from cms.utils import cms_static_url
 from django.conf import settings
-from django.utils.translation import get_language
-from django.template.loader import render_to_string
-from django.utils.safestring import mark_safe
-from os.path import join
-from django.utils.encoding import smart_unicode
-import tinymce.settings
-from django.utils import simplejson
-from django.template.defaultfilters import escape
 from django.forms.widgets import flatatt
+from django.template.defaultfilters import escape
+from django.template.loader import render_to_string
+from django.utils import simplejson
+from django.utils.encoding import smart_unicode
+from django.utils.safestring import mark_safe
+from django.utils.translation import get_language
+from tinymce.widgets import TinyMCE, get_language_config
 import cms.plugins.text.settings
+import tinymce.settings
 
 class TinyMCEEditor(TinyMCE):
     
@@ -30,13 +30,17 @@ class TinyMCEEditor(TinyMCE):
         
     def _media(self):
         media = super(TinyMCEEditor, self)._media()
-        media.add_js([join(settings.CMS_MEDIA_URL, path) for path in (
-                      'js/tinymce.placeholdereditor.js',
-                      'js/lib/ui.core.js',
-                      'js/placeholder_editor_registry.js',
-                      )])
-        media.add_css({"all":[join(settings.CMS_MEDIA_URL, path) for path in ('css/jquery/cupertino/jquery-ui.css',
-                                                                     'css/tinymce_toolbar.css')]})
+        media.add_js([cms_static_url(path) for path in (
+          'js/tinymce.placeholdereditor.js',
+          'js/libs/jquery.ui.core.js',
+          'js/placeholder_editor_registry.js',
+        )])
+        media.add_css({
+            "all": [
+                cms_static_url(path) for path in ('css/jquery/cupertino/jquery-ui.css',
+                                                  'css/tinymce_toolbar.css')
+            ]
+        })
         
         return media
     
@@ -64,7 +68,18 @@ class TinyMCEEditor(TinyMCE):
         mce_config['plugins'] = plugins
         if mce_config['theme'] == "simple":
             mce_config['theme'] = "advanced"
-        mce_config['theme_advanced_buttons1_add_before'] = "cmsplugins,cmspluginsedit"
+        # Add cmsplugin to first toolbar, if not already present
+        all_tools = []
+        idx = 0
+        while True:
+            idx += 1
+            buttons = mce_config.get('theme_advanced_buttons%d' % (idx,), None)
+            if buttons is None:
+                break
+            all_tools.extend(buttons.split(','))
+        if 'cmsplugins' not in all_tools and 'cmspluginsedit' not in all_tools:
+            mce_config['theme_advanced_buttons1_add_before'] = "cmsplugins,cmspluginsedit"
+        
         json = simplejson.dumps(mce_config)
         html = [u'<textarea%s>%s</textarea>' % (flatatt(final_attrs), escape(value))]
         if tinymce.settings.USE_COMPRESSOR:

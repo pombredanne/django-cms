@@ -18,6 +18,7 @@ class InheritPagePlaceholderPlugin(CMSPluginBase):
     render_template = "cms/plugins/inherit_plugins.html"
     form = InheritForm
     admin_preview = False
+    page_only = True
     
     def render(self, context, instance, placeholder):
         template_vars = {
@@ -31,15 +32,16 @@ class InheritPagePlaceholderPlugin(CMSPluginBase):
                 lang = get_language_from_request(request)
             else:
                 lang = settings.LANGUAGE_CODE
-        if instance.from_page:
-            page = instance.from_page
+        page = instance.placeholder.page
+        from_page = instance.from_page
+
+        if page.publisher_is_draft:
+            from_page = from_page.get_draft_object()
         else:
-            page = instance.page
-        if not instance.page.publisher_is_draft and page.publisher_is_draft:
-            page = page.publisher_public
-            
+            from_page = from_page.get_public_object()
+
         plugins = get_cmsplugin_queryset(request).filter(
-            placeholder__page=page,
+            placeholder__page=from_page,
             language=lang,
             placeholder__slot__iexact=placeholder,
             parent__isnull=True
@@ -50,6 +52,8 @@ class InheritPagePlaceholderPlugin(CMSPluginBase):
             tmpctx = copy.copy(context)
             tmpctx.update(template_vars)
             inst, name = plg.get_plugin_instance()
+            if inst is None:
+                continue
             outstr = inst.render_plugin(tmpctx, placeholder)
             plugin_output.append(outstr)
         template_vars['parent_output'] = plugin_output
